@@ -54,7 +54,32 @@ public class PlayerController : MonoBehaviour
             _rigidbody.drag = 0;
         }
     }
+    
+    private void OnEnable() 
+    {
+        var input = GetComponent<PlayerInput>();
 
+        input.actions["Movement"].performed += (context) =>
+        {
+           GetInput(context);
+        };
+        
+        input.actions["Movement"].canceled += (context) =>
+        {
+            _userInput = Vector3.zero;
+        };
+        
+        input.actions["Jump"].performed += (context) =>
+        {
+            Jump(context);
+        };
+        
+        input.actions["Jump"].canceled += (context) =>
+        {
+            Jump(context);
+        };
+
+    }
 
     void FixedUpdate()
     {

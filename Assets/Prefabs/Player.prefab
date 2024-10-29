@@ -191,12 +191,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  crouchSpeed: 2
   orientation: {fileID: 5622790703112636185}
   drag: 5
-  maxJumpForce: 12
+  maxJumpForce: 10
   jumpCoolDown: 1
   airMultiplier: 1
-  forceIncreaseRate: 8
+  forceIncreaseRate: 9.5
   playerHeight: 1.85
   Ground:
     serializedVersion: 2

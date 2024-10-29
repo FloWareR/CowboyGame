@@ -83,7 +83,7 @@
                 {
                     "name": "XYZ (Keyboard)",
                     "id": "340425fc-3439-4019-9e59-a987f6bb6333",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

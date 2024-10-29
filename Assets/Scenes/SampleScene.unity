@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -749,11 +749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1875251950682238140, guid: 036eae34a936d53498f8634d7a49ac28, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000011838969
+      value: -0.000000008447955
       objectReference: {fileID: 0}
     - target: {fileID: 1875251950682238140, guid: 036eae34a936d53498f8634d7a49ac28, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000022799767
+      value: 0.0000000016269276
       objectReference: {fileID: 0}
     - target: {fileID: 2714676921475621405, guid: 036eae34a936d53498f8634d7a49ac28, type: 3}
       propertyPath: m_LocalPosition.y
@@ -801,11 +801,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4108609127082798261, guid: 036eae34a936d53498f8634d7a49ac28, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000008519471
+      value: 0.000000008514446
       objectReference: {fileID: 0}
     - target: {fileID: 4108609127082798261, guid: 036eae34a936d53498f8634d7a49ac28, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000012332397
+      value: -0.0000000012325124
       objectReference: {fileID: 0}
     - target: {fileID: 5409233023265872112, guid: 036eae34a936d53498f8634d7a49ac28, type: 3}
       propertyPath: m_BindingMode
@@ -937,6 +937,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 76929e549d7ede74a848af1cf483ce3e, type: 3}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: inGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
+      value: dbc6f6b2-c787-4b95-b040-dc31f67b07c3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
+      value: InGame/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745151976127997626, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6952725508675006428, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
       propertyPath: jumpForce
       value: 5
@@ -955,7 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6952725508675006428, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
       propertyPath: maxJumpForce
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6952725508675006428, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
       propertyPath: airMultiplier
@@ -963,7 +1015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6952725508675006428, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
       propertyPath: forceIncreaseRate
-      value: 8
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 7345874752220365774, guid: 5d0373d97bc9ec549ad27c12649e9f05, type: 3}
       propertyPath: m_LocalPosition.y
