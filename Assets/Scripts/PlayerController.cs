@@ -45,8 +45,6 @@ public class PlayerController : MonoBehaviour
         SpeedControl();
         JumpCheck();
         
-        Debug.Log(_isGrounded);
-        Debug.DrawRay(transform.position, Vector3.down * ((playerHeight/2) + 0.1f), _isGrounded ? Color.green : Color.red);
         
         if (_isGrounded) {
             _rigidbody.drag = drag;
@@ -55,31 +53,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private void OnEnable() 
-    {
-        var input = GetComponent<PlayerInput>();
-
-        input.actions["Movement"].performed += (context) =>
-        {
-           GetInput(context);
-        };
-        
-        input.actions["Movement"].canceled += (context) =>
-        {
-            _userInput = Vector3.zero;
-        };
-        
-        input.actions["Jump"].performed += (context) =>
-        {
-            Jump(context);
-        };
-        
-        input.actions["Jump"].canceled += (context) =>
-        {
-            Jump(context);
-        };
-
-    }
 
     void FixedUpdate()
     {
