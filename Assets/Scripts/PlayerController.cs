@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform orientation;
     [SerializeField] private float drag;
     [SerializeField] private float maxJumpForce;
-    [SerializeField] private float jumpCoolDown;
-    [SerializeField] private float airMultiplier;
     [SerializeField] private float forceIncreaseRate;
+    
+    [SerializeField, Range(0.01f, 1)] private float airControl;
     
         
     [Header("Ground Check")] 
@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 _moveDirection;
     private Rigidbody _rigidbody;
     private CapsuleCollider _collider;
-    private const float MOVEDIRECTIONMULTIPLIER = 5f;
+    private const float MOVEDIRECTIONMULTIPLIER = 50f;
+    private const float JUMPFORCEMULTIPLIER = 50f;
+    private bool _previouslyGrounded;
+
     
     
     
@@ -35,21 +38,22 @@ public class PlayerController : MonoBehaviour
     {
         ResetJump();
         _rigidbody = GetComponent<Rigidbody>();
-        _collider = GetComponent<CapsuleCollider>();
+        _collider = GetComponentInChildren<CapsuleCollider>();
         _rigidbody.freezeRotation = true;
     }
 
     private void Update()
     {
-        _isGrounded = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo,  (playerHeight/2) + 0.1f, Ground);
+        Vector3 raycastOrigin = transform.position + Vector3.down * (playerHeight / 2);
+        _isGrounded = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, (playerHeight / 2) + 0.1f, Ground);
+        Debug.DrawRay(raycastOrigin, Vector3.down * 0.1f, Color.red);
         SpeedControl();
         JumpCheck();
         
-        
-        if (_isGrounded) {
-            _rigidbody.drag = drag;
-        } else {
-            _rigidbody.drag = 0;
+        if (_isGrounded != _previouslyGrounded) 
+        {
+            _rigidbody.drag = _isGrounded ? drag : 0;
+            _previouslyGrounded = _isGrounded;
         }
     }
     
@@ -68,7 +72,16 @@ public class PlayerController : MonoBehaviour
         {
             currentMoveSpeed = crouchSpeed;
         }
-        _rigidbody.AddForce(_moveDirection * (currentMoveSpeed * MOVEDIRECTIONMULTIPLIER), ForceMode.Force);   
+
+        if (!_isGrounded)
+        {
+            _rigidbody.AddForce(_moveDirection * ((currentMoveSpeed * MOVEDIRECTIONMULTIPLIER) * airControl), ForceMode.Force);   
+
+        }
+        else
+        {
+            _rigidbody.AddForce(_moveDirection * (currentMoveSpeed * MOVEDIRECTIONMULTIPLIER), ForceMode.Force);   
+        }
     }
 
 
@@ -116,7 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         jumpForce = Math.Clamp(jumpForce, 4f, maxJumpForce);
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0f, _rigidbody.velocity.z);
-        _rigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        _rigidbody.AddForce(transform.up * (jumpForce * JUMPFORCEMULTIPLIER), ForceMode.Impulse);
         ResetCollider();
     }
     
