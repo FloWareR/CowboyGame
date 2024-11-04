@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3159391066092732605
+--- !u!1 &5835905814110740202
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2651403171500030378}
-  - component: {fileID: 7629656215724559246}
-  - component: {fileID: 6745151976127997626}
-  - component: {fileID: 6952725508675006428}
+  - component: {fileID: 371338386520450652}
+  m_Layer: 0
+  m_Name: Orientation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &371338386520450652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835905814110740202}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3862264219951078789}
+  m_Father: {fileID: 163047727196846878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7071199008856763463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163047727196846878}
+  - component: {fileID: 1179329711529349953}
+  - component: {fileID: 2113461242288825224}
+  - component: {fileID: 2278127176781434737}
+  - component: {fileID: 6699954326575193794}
+  - component: {fileID: 4463496906174354689}
+  - component: {fileID: 5902124458925459635}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -19,32 +54,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2651403171500030378
+--- !u!4 &163047727196846878
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159391066092732605}
+  m_GameObject: {fileID: 7071199008856763463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7345874752220365774}
-  - {fileID: 5622790703112636185}
+  - {fileID: 2798964320663599258}
+  - {fileID: 371338386520450652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &7629656215724559246
+--- !u!54 &1179329711529349953
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159391066092732605}
+  m_GameObject: {fileID: 7071199008856763463}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 80
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -61,107 +96,102 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!114 &6745151976127997626
+  m_Constraints: 112
+  m_CollisionDetection: 2
+--- !u!114 &2113461242288825224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159391066092732605}
+  m_GameObject: {fileID: 7071199008856763463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Script: {fileID: 11500000, guid: c4f93e790afe80446a4fda4cd6f6b8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 76929e549d7ede74a848af1cf483ce3e, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 8c436fc0d4ac0b3459f452ccaec0b55d, type: 3}
-        m_TargetAssemblyTypeName: ThirdPersonCam, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6952725508675006428}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: GetInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 48cf71c0-22fd-4ec2-af5c-dba03524372c
-    m_ActionName: inGame/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6952725508675006428}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Jump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: e052db9d-ba3d-49d1-94c6-e02819bda8ec
-    m_ActionName: inGame/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Default
-  m_DefaultActionMap: inGame
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &6952725508675006428
+  isInteracting: 0
+--- !u!114 &2278127176781434737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159391066092732605}
+  m_GameObject: {fileID: 7071199008856763463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011406d70129e8748bc642a22dfaec6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e5483ce10a758442bd6e04e25b3e377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  crouchSpeed: 2
-  orientation: {fileID: 5622790703112636185}
-  drag: 5
-  maxJumpForce: 10
-  jumpCoolDown: 1
-  airMultiplier: 1
-  forceIncreaseRate: 9.5
-  playerHeight: 1.85
-  Ground:
+  movementInput: {x: 0, y: 0}
+  cameraInput: {x: 0, y: 0}
+--- !u!114 &6699954326575193794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071199008856763463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec96ebe47ffa4d1488b09f799c812bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraObject: {fileID: 0}
+  walkSpeed: 0
+  runSpeed: 0
+  sprintSpeed: 0
+  rotationSpeed: 10
+  isSprinting: 0
+  isGrounded: 0
+  isJumping: 0
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 64
---- !u!1 &5617325960161833125
+    m_Bits: 0
+  inAirTimer: 0
+  leapingVelocity: 0
+  fallingVelocity: 0
+  rayCastHeightOffset: 0
+  gravityIntensity: 0
+  jumpHeight: 0
+  airControlFactor: 0
+--- !u!114 &4463496906174354689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071199008856763463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd19a556ff8fea43be4abb6637d0695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphics: {fileID: 2798964320663599258}
+--- !u!136 &5902124458925459635
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071199008856763463}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Height: 1.85
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.89, z: 0}
+--- !u!1 &8211847206354724844
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,68 +199,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5622790703112636185}
+  - component: {fileID: 3862264219951078789}
   m_Layer: 0
-  m_Name: Orientation
+  m_Name: CombatLookAt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5622790703112636185
+--- !u!4 &3862264219951078789
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5617325960161833125}
+  m_GameObject: {fileID: 8211847206354724844}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3836547380095575741}
-  m_Father: {fileID: 2651403171500030378}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6273184925762112144
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3836547380095575741}
-  m_Layer: 0
-  m_Name: CombatCameraLookAt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3836547380095575741
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6273184925762112144}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 1}
+  m_LocalPosition: {x: 0, y: 1.65, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5622790703112636185}
+  m_Father: {fileID: 371338386520450652}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7096392458508330021
+--- !u!1001 &2404168233039437681
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2651403171500030378}
+    m_TransformParent: {fileID: 163047727196846878}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -273,8 +271,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
       propertyPath: m_Name
       value: Graphics
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
       propertyPath: m_Controller
@@ -283,582 +289,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3041083298984600052}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2480839044194568457}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
---- !u!4 &992011760598801994 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8052196607835650671, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1678333757611014887 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -778611468251357502, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4508051448719740268 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2525213446790289079, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4696796853159794120 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6677381884866629139, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5877797867670809411 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5482761652540059802, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7345874752220365774 stripped
+--- !u!4 &2798964320663599258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7905156157098248710 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1139325989675019811, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7978718854147430772 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3041083298984600052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7978718854147430772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3505aa6d98bd4418e0744d5ab56fdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mecanim: {fileID: 0}
-  GroundedParameter: 
-  MovingParameter: 
-  User_IsMovingMecanim_NotMovingFloat_Threshold: 0.1
-  Rigidbody: {fileID: 0}
-  UseRigidbodyVelocityForIsMoving: 0
-  UseRaycastsForIsGrounded: 0
-  SlidingParameter: 
-  SpineBone: {fileID: 0}
-  ChestBone: {fileID: 0}
-  RagdolledParameter: 
-  SwingHelper: 0
-  GluingFloorLevel: 0.05
-  GluingFloorLevelUseOnMoving: 0
-  GluingFloorLevelOnMoving: 0
-  StepPointsOverlapRadius: 0
-  UseStepPointsOverlapRadiusOnMoving: 0
-  StepPointsOverlapRadiusOnMoving: 0
-  MotionInfluence:
-    AdvancedInfluence: 0
-    AxisMotionInfluence: {x: 0, y: 1, z: 1}
-    AxisMotionInfluenceBackwards: {x: 1, y: 1, z: 1}
-  Event_OnStep:
-    m_PersistentCalls:
-      m_Calls: []
-  EventExecuteSooner: 0.05
-  SendOnMovingGlue: 0
-  StepEventOnLanding: 0
-  StepInfoReceiver: {fileID: 0}
-  ExtraPelvisOffset: {x: 0, y: 0, z: 0}
-  ReposeGluingAfter: 0
-  GlueOnlyOnIdle: 0
-  LocalWorldUp: 1
-  DisableCustomModules: 0
-  CustomModules:
-  - Enabled: 1
-    Parent: {fileID: 3041083298984600052}
-    ModuleReference: {fileID: 11400000, guid: 7d9bd86d54a7a594cb1793f9533e2e00, type: 2}
-    customStringList: []
-    customObjectList: []
-    variables: []
-  ImpulsesPowerMultiplier: 1
-  ImpulsesDurationMultiplier: 1
-  ImpulsesDampUpPushes: 0
-  DebugPushHipsImpulse:
-    OptionalName: Impulse
-    PowerMultiplier: 1
-    ImpulseDuration: 0.6
-    WorldTranslation: {x: 0, y: 0, z: 0}
-    LocalTranslation: {x: 0, y: -1, z: 0}
-    HipsRotate: {x: 0, y: 0, z: 0}
-    InheritElasticness: 0.75
-    ImpulseCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.2
-        value: 1
-        inSlope: 3.4375
-        outSlope: 3.4375
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    YAxisMultiplyCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    AlignWithDesiredMoveDirection: 0
-  UseHips: 1
-  HipsHeightStepBlend: 1
-  HipsHeightStepSpeed: 0.7
-  HipsAdjustStyle: 0
-  StabilizeCenterOfMass: 0.45
-  AnimationIsStablePose: 0.75
-  StabilizingSpeed: 0.375
-  PushHipsOnLegMove: 0.1
-  NormalizePush: 0
-  PushReactionSpeed: 0.3
-  PushYBlend: 1
-  HipsStretchPreventer: 0.15
-  StretchPreventerSpeed: 0.8
-  StabilizeOnIsMoving: 0.5
-  _Hips_Modules_ExtraWOffset: {x: 0, y: 0, z: 0}
-  _Hips_Modules_ExtraRotOffset: {x: 0, y: 0, z: 0}
-  ExtraHipsHubs: []
-  HipsHubsHandling: 1
-  HipsHubsBlend: 1
-  HubsBackBonesBlend:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  HubBackBonesElasticity: 0.1
-  HipsSetup:
-    HipsElasticityBlend: 1
-    HipsMuscle:
-      DesiredPosition: {x: 0, y: 0, z: 0}
-      Acceleration: 10000
-      AccelerationLimit: 5000
-      Damping: 10
-      BrakePower: 0.2
-    HipsRotElasticityBlend: 0
-    HipsRotMuscle:
-      DesiredRotation: {x: 0, y: 0, z: 0, w: 0}
-      Acceleration: 5000
-      AccelerationLimit: 1000
-      Damping: 10
-      BrakePower: 0.2
-  StabilityAlgorithm: 1
-  Legs:
-  - G_CustomForceAttach: 0
-    G_CustomForceNOTDetach: 0
-    G_CustomForceDetach: 0
-    G_CustomForceNOTAttach: 0
-    Owner: {fileID: 3041083298984600052}
-    LegBlendWeight: 1
-    LegMoveSpeedMultiplier: 1
-    LegRaiseMultiplier: 1
-    GlueThresholdMultiplier: 1
-    GluePointOffset: {x: 0, y: 0}
-    LegStretchMultiplier: 1
-    CustomLegAnimating: {fileID: 0}
-    FootPitchOffset: 0
-    BoneStart: {fileID: 5877797867670809411}
-    BoneMid: {fileID: 1678333757611014887}
-    BoneEnd: {fileID: 7905156157098248710}
-    Side: 1
-    OppositeLegIndex: 1
-    RaycastPrecision: 0
-    UseFeet: 0
-    BoneFeet: {fileID: 0}
-    FeetSensitivity: 0.5
-    InverseHint: 0
-    AnkleToHeel: {x: 0.0000000012805631, y: 0.033023275, z: -0.074420065}
-    AnkleToFeetEnd: {x: -0.008475038, y: 0.1522623, z: -0.0215084}
-    AnkleRight: {x: -0.9978962, y: -0.059258506, z: -0.026295424}
-    AnkleUp: {x: 0.0000001359731, y: -0.40560305, z: 0.91404945}
-    AnkleForward: {x: -0.06483066, y: 0.9121266, z: 0.4047499}
-    FootMiddlePosition: 0.5
-    AnkleYawCorrection: 0
-    _FinalIKPos: {x: 0, y: 0, z: 0}
-  - G_CustomForceAttach: 0
-    G_CustomForceNOTDetach: 0
-    G_CustomForceDetach: 0
-    G_CustomForceNOTAttach: 0
-    Owner: {fileID: 3041083298984600052}
-    LegBlendWeight: 1
-    LegMoveSpeedMultiplier: 1
-    LegRaiseMultiplier: 1
-    GlueThresholdMultiplier: 1
-    GluePointOffset: {x: 0, y: 0}
-    LegStretchMultiplier: 1
-    CustomLegAnimating: {fileID: 0}
-    FootPitchOffset: 0
-    BoneStart: {fileID: 992011760598801994}
-    BoneMid: {fileID: 8470785122517882595}
-    BoneEnd: {fileID: 4696796853159794120}
-    Side: 2
-    OppositeLegIndex: 0
-    RaycastPrecision: 0
-    UseFeet: 0
-    BoneFeet: {fileID: 0}
-    FeetSensitivity: 0.5
-    InverseHint: 0
-    AnkleToHeel: {x: 0.0000000061699867, y: 0.033023234, z: -0.07442002}
-    AnkleToFeetEnd: {x: 0.00847507, y: 0.1522624, z: -0.021508548}
-    AnkleRight: {x: -0.99789655, y: 0.059258565, z: 0.026295185}
-    AnkleUp: {x: -0.00000012293458, y: -0.4056024, z: 0.9140499}
-    AnkleForward: {x: 0.064830735, y: 0.9121271, z: 0.4047493}
-    FootMiddlePosition: 0.5
-    AnkleYawCorrection: 0
-    _FinalIKPos: {x: 0, y: 0, z: 0}
-  BaseLegAnimating:
-    StepMoveDuration: 0.375
-    MoveToGoalCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0
-        outWeight: 0.1842105
-      - serializedVersion: 3
-        time: 0.4885197
-        value: 0.8972011
-        inSlope: 1.38764
-        outSlope: 1.38764
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.3333333
-        outWeight: 0.3333333
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    SpherizeTrack:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0.6958197
-        outSlope: 0.6958197
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0
-        outWeight: 0.460011
-      - serializedVersion: 3
-        time: 0.4
-        value: 0.3
-        inSlope: -0.04204308
-        outSlope: -0.04204308
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.333
-        outWeight: 0.3410656
-      - serializedVersion: 3
-        time: 0.85
-        value: 0
-        inSlope: -0.2721428
-        outSlope: -0.2721428
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.3953607
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    SpherizePower: 0.3
-    MinFootRaise: 0.1
-    MaxFootRaise: 0.4
-    RaiseYAxisCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0.8504464
-        outSlope: 0.8504464
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0
-        outWeight: 0.6517575
-      - serializedVersion: 3
-        time: 0.2731183
-        value: 0.45
-        inSlope: 0.9770691
-        outSlope: 0.9770691
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.3333333
-        outWeight: 0.3387407
-      - serializedVersion: 3
-        time: 0.505118
-        value: 0.5
-        inSlope: -0.2710344
-        outSlope: -0.2710344
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.3333333
-        outWeight: 0.3333333
-      - serializedVersion: 3
-        time: 0.9110107
-        value: 0
-        inSlope: -0.1500788
-        outSlope: -0.1500788
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.5409704
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    AllowSpeedups: 0.4
-    AllowDetachBefore: 1
-    PushHipsOnMoveCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 5.630541
-        outSlope: 5.630541
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0
-        outWeight: 0.198735
-      - serializedVersion: 3
-        time: 0.383
-        value: 0.3733972
-        inSlope: -0.1664574
-        outSlope: -0.1664574
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.333
-        outWeight: 0.2940554
-      - serializedVersion: 3
-        time: 0.7075226
-        value: 0.1460427
-        inSlope: -1.565806
-        outSlope: -1.565806
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.3605607
-        outWeight: 0.3446763
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.09374858
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    FootRotationCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0.5764588
-        outSlope: 0.5764588
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0
-        outWeight: 0.4956417
-      - serializedVersion: 3
-        time: 0.4378169
-        value: 0.2035736
-        inSlope: -0.2411275
-        outSlope: -0.2411275
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.3333333
-        outWeight: 0.4033037
-      - serializedVersion: 3
-        time: 0.7841034
-        value: -0.1339308
-        inSlope: 0.3331003
-        outSlope: 0.3331003
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.3333333
-        outWeight: 0.3333333
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0.3498169
-        outSlope: 0.3498169
-        tangentMode: 0
-        weightedMode: 3
-        inWeight: 0.5534658
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  UseGluing: 1
-  MainGlueBlend: 1
-  GlueRangeThreshold: 0.375
-  GlueFadeInSpeed: 0.85
-  AllowGlueBelowFoot: 0.2
-  GlueFadeOutSpeed: 0.5
-  UnglueOn: 30
-  AllowGlueDrag: 0.7
-  GlueMode: 2
-  SmoothSuddenSteps: 0.85
-  LegElevateBlend: 0.7
-  LegElevateHeightLimit: 0.6
-  FootRotationBlend: 1
-  FootAlignRapidity: 0.75
-  AnimateFeet: 1
-  LimitFeetYaw: 23.61764
-  AnimationFloorLevel: 0.001
-  _Editor_Foldout_Setup_LegsList: 1
-  _Editor_EnsureCount: 0
-  _Editor_OnValidateTrigger: 1
-  _EditorAllowAutoUpdateFeetParams: 1
-  _EditorCategory: 0
-  _EditorSetupCategory: 1
-  _EditorMotionCategory: 0
-  _EditorExtraCategory: 0
-  IKHintMode: 0
-  LimitLegStretch: 0.99
-  FeetYOffset: 0
-  FeetLengthAdjust: 0
-  baseTransform: {fileID: 0}
-  Hips: {fileID: 4508051448719740268}
-  ScaleReferenceMode: 3
-  finalScaleReference: 0.8715094
-  finalScaleReferenceSqrt: 0.1
-  customScaleReferenceValue: 0.5
-  DelayedInitialization: 0
-  Calibrate: 1
-  AnimatePhysics: 0
-  UnscaledDeltaTime: 0
-  DisableIfInvisible: {fileID: 0}
-  FadeOffAtDistance: 0
-  GroundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  RaycastHitTrigger: 1
-  CastDistance: 1
-  RaycastStartHeight: 0
-  RaycastStartHeightMul: 1
-  RaycastStyle: 0
-  RaycastShape: 0
-  SpherecastRealign: 0
-  ZeroStepsOnNoRaycast: 0
-  BodyStepDown: 0.5
-  MaxBodyStepUp: 0
-  UngroundFadeSpeed: 0.1
-  IsMovingFadeSpeed: 0.4
-  LegsAnimatorBlend: 1
-  _Editor_DefaultModuleOnStart: {fileID: 11400000, guid: 7d9bd86d54a7a594cb1793f9533e2e00, type: 2}
-  _Editor_LegHelperModule: {fileID: 11400000, guid: 0645fbea8059aec47aa6ae9d2c93c1d4, type: 2}
---- !u!136 &2480839044194568457
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7978718854147430772}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.25
-  m_Height: 1.85
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
---- !u!4 &8470785122517882595 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1726344752564138694, guid: 30b4488097e259b4da85ccf922a0382c, type: 3}
-  m_PrefabInstance: {fileID: 7096392458508330021}
+  m_PrefabInstance: {fileID: 2404168233039437681}
   m_PrefabAsset: {fileID: 0}

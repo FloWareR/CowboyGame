@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 1556163789238020880}
   - component: {fileID: 9000483554657840063}
   m_Layer: 0
-  m_Name: ThirdPersonCamera (Combat)
+  m_Name: ThirdPersonCamera_Legacy (Combat)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

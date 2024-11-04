@@ -4,22 +4,19 @@ using UnityEngine.InputSystem;
 public class ThirdPersonCamera : MonoBehaviour
 {
     [Header("References")] 
-    [SerializeField] private Transform orientation;
     [SerializeField] private Transform player;
-    [SerializeField] private Transform playerObj;
-    [SerializeField] private float rotationSpeed;
-    
+    [SerializeField] private Transform playerGraphics;
+    [SerializeField] private Transform orientation;
     [SerializeField] private Transform combatLookAt;
     [SerializeField] private GameObject basicCam;
     [SerializeField] private GameObject combatCam;
-    [SerializeField] private CameraStyle _currentStyle = CameraStyle.Combat;
+    
+    [Header("Camera Settings")]
+    [SerializeField] private CameraStyle currentStyle = CameraStyle.Basic;
+    [SerializeField] private float rotationSpeed;
     
     private Vector2 _userInput;
-    public enum CameraStyle 
-    {
-        Basic,
-        Combat
-    }
+    
 
     private void Start()
     {
@@ -36,13 +33,13 @@ public class ThirdPersonCamera : MonoBehaviour
         var viewDirection = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDirection.normalized;
         
-        switch (_currentStyle)
+        switch (currentStyle)
         {
             case CameraStyle.Basic:
                 var inputDirection = (orientation.forward * _userInput.y) + (orientation.right * _userInput.x);
                 if (inputDirection != Vector3.zero)
                 {
-                    playerObj.forward = Vector3.Slerp(playerObj.forward, inputDirection.normalized, Time.deltaTime * rotationSpeed);
+                    playerGraphics.forward = Vector3.Slerp(playerGraphics.forward, inputDirection.normalized, Time.deltaTime * rotationSpeed);
                 }
                 
                 break;
@@ -50,7 +47,7 @@ public class ThirdPersonCamera : MonoBehaviour
             case CameraStyle.Combat:
                 var combatLookAtDirection = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
                 orientation.forward = combatLookAtDirection.normalized;
-                playerObj.forward = combatLookAtDirection.normalized;
+                playerGraphics.forward = combatLookAtDirection.normalized;
                 break;
         }
 
@@ -75,6 +72,13 @@ public class ThirdPersonCamera : MonoBehaviour
                 break;
         }
 
-        _currentStyle = newStyle;
+        currentStyle = newStyle;
     }
 }
+
+public enum CameraStyle 
+{
+    Basic,
+    Combat
+}
+
