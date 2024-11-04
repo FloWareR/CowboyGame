@@ -87,7 +87,8 @@ public class PlayerLocomotion : MonoBehaviour
         if (targetDirection == Vector3.zero) targetDirection = transform.forward;
 
         var targetRotation = Quaternion.LookRotation(targetDirection);
-        var playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        var trueRotation = isGrounded ? rotationSpeed : rotationSpeed * airControlMultiplier;
+        var playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, trueRotation * Time.deltaTime);
         transform.rotation = playerRotation;
     }
     
