@@ -1557,10 +1557,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: runSpeed
-      value: 6
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+      propertyPath: jumpForce
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: walkSpeed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+      propertyPath: groundDrag
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
@@ -1573,7 +1581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: sprintSpeed
-      value: 14
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: cameraObject
@@ -1602,6 +1610,14 @@ PrefabInstance:
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: rayCastHeightOffset
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+      propertyPath: airControlMultiplier
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+      propertyPath: customGravityMultiplier
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7071199008856763463, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: m_Name

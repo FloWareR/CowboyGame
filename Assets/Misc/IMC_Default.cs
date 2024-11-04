@@ -263,7 +263,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ac435912-b6ac-4cc8-81a0-2797fe561942"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
