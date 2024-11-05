@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
@@ -16,7 +17,9 @@ public class InputManager : MonoBehaviour
     private IMC_Default _playerControls;
     private AnimatorManager _animatorManager;
     private PlayerLocomotion _playerLocomotion;
+    private CameraManager _cameraManager;
     
+    private bool _isJoystickInput;
     
     public Vector2 movementInput;
     public Vector2 cameraInput;
@@ -26,6 +29,7 @@ public class InputManager : MonoBehaviour
     {
         _animatorManager = GetComponent<AnimatorManager>();
         _playerLocomotion = GetComponent<PlayerLocomotion>();
+        _cameraManager = FindObjectOfType<CameraManager>();
     }
 
     private void OnEnable()
@@ -34,7 +38,7 @@ public class InputManager : MonoBehaviour
         {
             _playerControls = new IMC_Default();
             _playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
-            _playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
+            _playerControls.PlayerMovement.Camera.performed += HandleCameraInput;
 
             _playerControls.PlayerActions.Sprint.performed += i => SprintInput = true;
             _playerControls.PlayerActions.Sprint.canceled += i => SprintInput = false;
@@ -57,13 +61,21 @@ public class InputManager : MonoBehaviour
         HandleJumpInput();
     }
     
+    private void HandleCameraInput(InputAction.CallbackContext context)
+    {
+        cameraInput = context.ReadValue<Vector2>();
+        _isJoystickInput = context.control.device is UnityEngine.InputSystem.Gamepad;
+    }
+    
     private void HandleMovementInput()
     {
         VerticalInput = movementInput.y;
         HorizontalInput = movementInput.x;
-        
+
         CameraInputY = cameraInput.y;
         CameraInputX = cameraInput.x;
+
+        _cameraManager.isJoystickInput = _isJoystickInput;
         
         MoveAmount = Mathf.Clamp01(Mathf.Abs(HorizontalInput) + Mathf.Abs(VerticalInput));
         _animatorManager.UpdateAnimatorValues(0f, MoveAmount, _playerLocomotion.isSprinting);

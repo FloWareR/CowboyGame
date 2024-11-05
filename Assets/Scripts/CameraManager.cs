@@ -1,30 +1,30 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class CameraManager : MonoBehaviour
 {
     [Header("References")] 
     [SerializeField] private Transform cameraPivot;
-   
+    [SerializeField] private Transform lookAt; 
+    [SerializeField] private Transform playerTransform;
+
     [SerializeField] private LayerMask collisionLayers;
 
     [Header("Camera adjustments")] 
     [SerializeField] private float cameraFollowSpeed;
-    [SerializeField] private float cameraLookSpeed;
-    [SerializeField] private float cameraPivotSpeed;
+    [SerializeField] private float mouseSensitivityX;
+    [SerializeField] private float mouseSensitivityY;
+    [SerializeField] private float joystickSensitivityX;
+    [SerializeField] private float joystickSensitivityY;
     [SerializeField] private float minimumPivotAngle;
     [SerializeField] private float maximumPivotAngle;
     
     [Header("Camera collision parameters")] 
     [SerializeField] private float cameraCollisionRadius;
     [SerializeField] private float cameraCollisionOffset;
-    [SerializeField] private float minimunCollisionOffset;
-    
-    
+    [SerializeField] private float minimumCollisionOffset;
+
+    public bool isJoystickInput;
+
     private float _defaultPosition;
     private float _lookAngle;
     private float _pivotAngle;
@@ -46,6 +46,11 @@ public class CameraManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void LateUpdate()
+    {
+        HandleAllCameraMovement();
+    }
+
     public void HandleAllCameraMovement()
     {
         FollowTarget();
@@ -55,21 +60,24 @@ public class CameraManager : MonoBehaviour
     
     private void FollowTarget()
     {
-        var targetPosition = Vector3.SmoothDamp(transform.position, _targetTransform.position, ref _cameraFollowVelocity, cameraFollowSpeed );
+        var targetPosition = Vector3.SmoothDamp(transform.position, _targetTransform.position, ref _cameraFollowVelocity, cameraFollowSpeed);
         transform.position = targetPosition;
     }
 
     private void RotateCamera()
     {
-        _lookAngle = _lookAngle + (_inputManager.CameraInputX * cameraLookSpeed);
-        _pivotAngle = _pivotAngle - (_inputManager.CameraInputY * cameraPivotSpeed);
+        var sensitivityX = isJoystickInput ? joystickSensitivityX : mouseSensitivityX;
+        var sensitivityY = isJoystickInput ? joystickSensitivityY : mouseSensitivityY;
+
+        _lookAngle += _inputManager.CameraInputX * sensitivityX;
+        _pivotAngle -= _inputManager.CameraInputY * sensitivityY;
         _pivotAngle = Mathf.Clamp(_pivotAngle, minimumPivotAngle, maximumPivotAngle);
-        
-        var rotation = Vector3.zero;
+
+        Vector3 rotation = Vector3.zero;
         rotation.y = _lookAngle;
         var targetRotation = Quaternion.Euler(rotation);
         transform.rotation = targetRotation;
-        
+
         rotation = Vector3.zero;
         rotation.x = _pivotAngle;
         targetRotation = Quaternion.Euler(rotation);
@@ -82,19 +90,21 @@ public class CameraManager : MonoBehaviour
         RaycastHit hit;
         Vector3 direction = _cameraTransform.position - cameraPivot.position;
         direction.Normalize();
-        if (Physics.SphereCast(cameraPivot.transform.position, cameraCollisionRadius, direction, out hit,
+        
+        if (Physics.SphereCast(cameraPivot.position, cameraCollisionRadius, direction, out hit,
                 Mathf.Abs(targetPosition), collisionLayers))
         {
             var distance = Vector3.Distance(cameraPivot.position, hit.point);
-            targetPosition =- (distance - cameraCollisionOffset);
+            targetPosition = -(distance - cameraCollisionOffset);
         }
 
-        if (Mathf.Abs(targetPosition) < minimunCollisionOffset)
+        if (Mathf.Abs(targetPosition) < minimumCollisionOffset)
         {
-            targetPosition = targetPosition - minimunCollisionOffset;
+            targetPosition = targetPosition - minimumCollisionOffset;
         }
 
         _cameraVectorPosition.z = Mathf.Lerp(_cameraTransform.localPosition.z, targetPosition, 0.2f);
         _cameraTransform.localPosition = _cameraVectorPosition;
     }
+
 }
