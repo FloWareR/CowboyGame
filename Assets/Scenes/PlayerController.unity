@@ -1078,6 +1078,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 198433428268783098, guid: 7f38f60a173ec7e4cacc9b7af686d87b, type: 3}
     - target: {fileID: 6188545446481822941, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+      propertyPath: additionalFX
+      value: 
+      objectReference: {fileID: 198126008008065056, guid: 4973f7e549ce8c74088dc30b61483c52, type: 3}
+    - target: {fileID: 6188545446481822941, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: attackOrigin
       value: 
       objectReference: {fileID: 2022810893}
