@@ -163,4 +163,26 @@ public class PlayerLocomotion : MonoBehaviour
 
         _isRotatingToLookAt = false;
     }
+
+    public void StopAllMovement()
+    {
+        _rigidbody.useGravity = false;
+        _rigidbody.velocity = Vector3.zero;
+    
+        _rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+    }
+    public void ReinstateMovement()
+    {
+        _rigidbody.useGravity = true;
+        _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+        RaycastHit hit;
+        var rayCastOrigin = transform.position + Vector3.up * rayCastHeightOffset;
+        if (!Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, 0.5f, groundLayer))
+        {
+            isGrounded = false;
+            _animatorManager.PlayTargetAnimation("Falling", false);
+            _rigidbody.drag = 0f; 
+        }
+    }
 }

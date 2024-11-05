@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2280171676490613612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2098828964515501745}
+  - component: {fileID: 234804337852164202}
+  m_Layer: 0
+  m_Name: Attack Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2098828964515501745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280171676490613612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.282, z: 0.373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 163047727196846878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &234804337852164202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280171676490613612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717e0cf63ebf2b94eaa6dbb5ff193527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3390279450312093855
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,6 +112,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2798964320663599258}
+  - {fileID: 2098828964515501745}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1179329711529349953
@@ -160,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 0}
+  lookAtTarget: {fileID: 0}
   walkSpeed: 0
   runSpeed: 0
   sprintSpeed: 0
@@ -169,6 +215,7 @@ MonoBehaviour:
   isSprinting: 0
   isGrounded: 0
   isJumping: 0
+  _isRotatingToLookAt: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -187,6 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd109ca63b741c40a964f99765ba76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heavyAttack: {fileID: 0}
+  attackOrigin: {fileID: 0}
 --- !u!114 &4463496906174354689
 MonoBehaviour:
   m_ObjectHideFlags: 0
