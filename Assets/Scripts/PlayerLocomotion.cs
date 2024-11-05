@@ -4,6 +4,7 @@ public class PlayerLocomotion : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform cameraObject;
+    [SerializeField] private Transform lookAtTarget;  // New LookAt target reference
 
     [Header("Movement Speed")]
     [SerializeField] private float walkSpeed;
@@ -11,12 +12,14 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] private float sprintSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float airControlMultiplier;
-    [SerializeField] private float groundDrag; 
+    [SerializeField] private float groundDrag;
 
     [Header("Movement Flags")]
     public bool isSprinting;
     public bool isGrounded;
     public bool isJumping;
+    public bool _isRotatingToLookAt; 
+
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Falling")]
@@ -33,6 +36,7 @@ public class PlayerLocomotion : MonoBehaviour
     private AnimatorManager _animatorManager;
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
 
+
     private void Awake()
     {
         _inputManager = GetComponent<InputManager>();
@@ -48,7 +52,9 @@ public class PlayerLocomotion : MonoBehaviour
     public void HandleAllMovement()
     {
         HandleFallingAndLanding();
-        if (_playerManager.isInteracting) return;
+        
+        if (_playerManager.isInteracting || _isRotatingToLookAt) return;
+        
         HandleMovement();
         HandleRotation();
     }
@@ -80,6 +86,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
+        if (_isRotatingToLookAt) return;
         var targetDirection = (cameraObject.forward * _inputManager.VerticalInput) + (cameraObject.right * _inputManager.HorizontalInput);
         targetDirection.Normalize();
         targetDirection.y = 0f;
@@ -99,7 +106,7 @@ public class PlayerLocomotion : MonoBehaviour
 
         if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, 0.5f, groundLayer))
         {
-            if (!isGrounded && _playerManager.isInteracting)
+            if (!isGrounded && !_playerManager.isInteracting)
                 _animatorManager.PlayTargetAnimation("Landing", true);
 
             isGrounded = true;
@@ -119,7 +126,6 @@ public class PlayerLocomotion : MonoBehaviour
         }
     }
 
-
     public void HandleJumping()
     {
         if (isGrounded)
@@ -132,5 +138,29 @@ public class PlayerLocomotion : MonoBehaviour
             isGrounded = false;
             isJumping = true;
         }
+    }
+
+    public void RotateAtLookAt()
+    {
+        if (lookAtTarget == null) return;
+        _isRotatingToLookAt = true;
+        StartCoroutine(SmoothLookAt());
+    }
+
+    private System.Collections.IEnumerator SmoothLookAt()
+    {
+        do
+        {
+            var directionToTarget = (lookAtTarget.position - transform.position).normalized;
+            directionToTarget.y = 0f; // Keep only horizontal rotation
+
+            var targetRotation = Quaternion.LookRotation(directionToTarget);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            yield return null;
+            
+        } while (_playerManager.isInteracting);
+
+        _isRotatingToLookAt = false;
     }
 }

@@ -12,12 +12,14 @@ public class InputManager : MonoBehaviour
     [NonSerialized] public float MoveAmount;
     [NonSerialized] public bool SprintInput;
     [NonSerialized] public bool JumpInput;
+    [NonSerialized] public bool PrimaryAttackInput;
 
         
     private IMC_Default _playerControls;
     private AnimatorManager _animatorManager;
     private PlayerLocomotion _playerLocomotion;
     private CameraManager _cameraManager;
+    private PlayerActions _playerActions;
     
     private bool _isJoystickInput;
     
@@ -30,6 +32,7 @@ public class InputManager : MonoBehaviour
         _animatorManager = GetComponent<AnimatorManager>();
         _playerLocomotion = GetComponent<PlayerLocomotion>();
         _cameraManager = FindObjectOfType<CameraManager>();
+        _playerActions = GetComponent<PlayerActions>();
     }
 
     private void OnEnable()
@@ -45,6 +48,10 @@ public class InputManager : MonoBehaviour
 
             _playerControls.PlayerActions.Jump.performed += i => JumpInput = true;
             _playerControls.PlayerActions.Jump.canceled += i => JumpInput = false;
+
+            _playerControls.PlayerActions.PrimaryAttack.performed += i => PrimaryAttackInput = true;
+            _playerControls.PlayerActions.PrimaryAttack.canceled += i => PrimaryAttackInput = false;
+
         }
         _playerControls.Enable();
     }
@@ -59,6 +66,7 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleSprintingInput();
         HandleJumpInput();
+        HandlePrimaryAttack();
     }
     
     private void HandleCameraInput(InputAction.CallbackContext context)
@@ -99,6 +107,15 @@ public class InputManager : MonoBehaviour
         {
             JumpInput = false;
             _playerLocomotion.HandleJumping();
+        }
+    }
+
+    private void HandlePrimaryAttack()
+    {
+        if (PrimaryAttackInput)
+        {
+            PrimaryAttackInput = false;
+            _playerActions.HandlePrimaryAction();
         }
     }
     

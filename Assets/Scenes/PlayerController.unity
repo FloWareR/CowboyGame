@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -403,7 +403,7 @@ Transform:
   m_GameObject: {fileID: 431892042}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6}
+  m_LocalPosition: {x: 0, y: 0, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -657,9 +657,9 @@ MonoBehaviour:
   cameraFollowSpeed: 0.15
   mouseSensitivityX: 0.1
   mouseSensitivityY: 0.1
-  joystickSensitivityX: 0.75
-  joystickSensitivityY: 0.5
-  minimumPivotAngle: -40
+  joystickSensitivityX: 0.65
+  joystickSensitivityY: 0.35
+  minimumPivotAngle: -60
   maximumPivotAngle: 60
   cameraCollisionRadius: 0.2
   cameraCollisionOffset: 0.2
@@ -1075,6 +1075,10 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 417151482}
+    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+      propertyPath: lookAtTarget
+      value: 
+      objectReference: {fileID: 431892043}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: fallingVelocity
       value: 55
