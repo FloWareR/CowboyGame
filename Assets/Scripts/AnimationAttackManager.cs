@@ -3,24 +3,24 @@ using UnityEngine;
 
 public class AnimationAttackManager : MonoBehaviour
 {
-    private PlayerActions _playerActions;
     private PlayerLocomotion _playerLocomotion;
+    private ParticleManager _particleManager;
+    private PlayerManager _playerManager;
 
     private void Awake()
     {
-        _playerActions = FindObjectOfType<PlayerActions>();
         _playerLocomotion = FindObjectOfType<PlayerLocomotion>();
-
+        _particleManager = FindObjectOfType<ParticleManager>();
+        _playerManager = FindObjectOfType<PlayerManager>();
     }
 
     public void TriggerHeavyAttackEffect()
     {
-        _playerActions.TriggerHeavyAttackEffect();    
+        _particleManager.TriggerHeavyAttackEffect();    
     }
 
     public void DestroyHeavyAttackEffect()
     {
-        _playerActions.DestroyHeavyAttackEffect();    
-        _playerLocomotion.ReinstateMovement();
+        _particleManager.DestroyHeavyAttackEffect();    
     }
 }

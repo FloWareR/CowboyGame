@@ -34,12 +34,14 @@ public class CameraManager : MonoBehaviour
     private Vector3 _cameraVectorPosition;
 
     private InputManager _inputManager;
+    private PlayerManager _playerManager;
 
     private void Awake()
     {
         if (Camera.main != null) _cameraTransform = Camera.main.transform;
         _defaultPosition = _cameraTransform.localPosition.z;
-        _targetTransform = FindObjectOfType<PlayerManager>().transform;
+        _playerManager = FindObjectOfType<PlayerManager>();
+        _targetTransform = _playerManager.transform;
         _inputManager = FindObjectOfType<InputManager>();
         
         Cursor.lockState = CursorLockMode.Locked;
@@ -69,6 +71,12 @@ public class CameraManager : MonoBehaviour
         var sensitivityX = isJoystickInput ? joystickSensitivityX : mouseSensitivityX;
         var sensitivityY = isJoystickInput ? joystickSensitivityY : mouseSensitivityY;
 
+        if (_playerManager.isHeavyAttacking)
+        {
+            sensitivityX = sensitivityX * .1f;
+            sensitivityY = sensitivityY * .1f;
+        }
+        
         _lookAngle += _inputManager.CameraInputX * sensitivityX;
         _pivotAngle -= _inputManager.CameraInputY * sensitivityY;
         _pivotAngle = Mathf.Clamp(_pivotAngle, minimumPivotAngle, maximumPivotAngle);

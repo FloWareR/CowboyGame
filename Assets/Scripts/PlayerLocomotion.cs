@@ -34,6 +34,7 @@ public class PlayerLocomotion : MonoBehaviour
     private Rigidbody _rigidbody;
     private PlayerManager _playerManager;
     private AnimatorManager _animatorManager;
+    private ParticleManager _particleManager;
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
 
 
@@ -43,6 +44,7 @@ public class PlayerLocomotion : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _playerManager = GetComponent<PlayerManager>();
         _animatorManager = GetComponent<AnimatorManager>();
+        _particleManager = GetComponent<ParticleManager>();
 
         if (Camera.main != null) cameraObject = Camera.main.transform;
 
@@ -52,11 +54,12 @@ public class PlayerLocomotion : MonoBehaviour
     public void HandleAllMovement()
     {
         HandleFallingAndLanding();
+        HandleTrail();
         
         if (_playerManager.isInteracting || _isRotatingToLookAt) return;
-        
         HandleMovement();
         HandleRotation();
+
     }
 
     private void HandleMovement()
@@ -98,6 +101,18 @@ public class PlayerLocomotion : MonoBehaviour
         var playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, trueRotation * Time.deltaTime);
         transform.rotation = playerRotation;
     }
+
+    private void HandleTrail()
+    {
+        if (isSprinting && isGrounded)
+        {
+            _particleManager.TriggerRunTrail();
+        }
+        else
+        {
+            _particleManager.StopRunTrail();
+        }    
+    }
     
     private void HandleFallingAndLanding()
     {
@@ -118,8 +133,8 @@ public class PlayerLocomotion : MonoBehaviour
             isGrounded = false;
             _animatorManager.PlayTargetAnimation("Falling", false);
             _rigidbody.drag = 0f; 
-        }
-
+            
+        } 
         if (!isGrounded)
         {
             _rigidbody.AddForce(Physics.gravity * (customGravityMultiplier - 1), ForceMode.Acceleration);
@@ -171,18 +186,15 @@ public class PlayerLocomotion : MonoBehaviour
     
         _rigidbody.constraints = RigidbodyConstraints.FreezePosition;
     }
+    
     public void ReinstateMovement()
     {
-        _rigidbody.useGravity = true;
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        _rigidbody.useGravity = true;
 
-        RaycastHit hit;
-        var rayCastOrigin = transform.position + Vector3.up * rayCastHeightOffset;
-        if (!Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, 0.5f, groundLayer))
+        if (!isGrounded)
         {
-            isGrounded = false;
             _animatorManager.PlayTargetAnimation("Falling", false);
-            _rigidbody.drag = 0f; 
         }
     }
 }

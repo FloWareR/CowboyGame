@@ -9,10 +9,12 @@ public class PlayerManager : MonoBehaviour
     private Animator _animator;
 
     public bool isInteracting;
+    public bool isHeavyAttacking;
     
     private static readonly int IsInteracting = Animator.StringToHash("isInteracting");
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
     private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
+    private static readonly int IsHeavyAttacking = Animator.StringToHash("isHeavyAttacking");
 
     private void Awake()
     {
@@ -37,6 +39,8 @@ public class PlayerManager : MonoBehaviour
         _cameraManager.HandleAllCameraMovement();
         isInteracting = _animator.GetBool(IsInteracting);
         _playerLocomotion.isJumping = _animator.GetBool(IsJumping);
+        isHeavyAttacking = _animator.GetBool(IsHeavyAttacking);
+
         _animator.SetBool(IsGrounded, _playerLocomotion.isGrounded);
     }
 }

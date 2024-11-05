@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class RotateToTarget : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-    void Start()
-    {
-        transform.rotation = target.rotation;
-    }
+    [SerializeField] private Transform attackOrigin;
+    [SerializeField] private Transform lookAt;
 
+    
     void Update()
     {
-        transform.rotation = target.rotation;
+        Debug.DrawRay(attackOrigin.position, lookAt.forward * 100, Color.red);
+        transform.LookAt(lookAt);
+
 
     }
 }
