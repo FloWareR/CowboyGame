@@ -14,19 +14,18 @@ public class InputManager : MonoBehaviour
     [NonSerialized] public bool JumpInput;
     [NonSerialized] public bool PrimaryAttackInput;
     [NonSerialized] public bool UltimateAttackInput;
+    
+    public Vector2 movementInput;
+    public Vector2 cameraInput;
 
+    private bool _isJoystickInput;
 
-        
     private IMC_Default _playerControls;
     private AnimatorManager _animatorManager;
     private PlayerLocomotion _playerLocomotion;
     private CameraManager _cameraManager;
     private PlayerActions _playerActions;
     
-    private bool _isJoystickInput;
-    
-    public Vector2 movementInput;
-    public Vector2 cameraInput;
 
 
     private void Awake()
@@ -43,7 +42,7 @@ public class InputManager : MonoBehaviour
         {
             _playerControls = new IMC_Default();
             _playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
-            _playerControls.PlayerMovement.Camera.performed += HandleCameraInput;
+            _playerControls.PlayerMovement.Camera.performed += InputOriginChecker;
 
             _playerControls.PlayerActions.Sprint.performed += i => SprintInput = true;
             _playerControls.PlayerActions.Sprint.canceled += i => SprintInput = false;
@@ -75,7 +74,7 @@ public class InputManager : MonoBehaviour
         HandleUltimateAttack();
     }
     
-    private void HandleCameraInput(InputAction.CallbackContext context)
+    private void InputOriginChecker(InputAction.CallbackContext context)
     {
         cameraInput = context.ReadValue<Vector2>();
         _isJoystickInput = context.control.device is UnityEngine.InputSystem.Gamepad;
@@ -120,7 +119,7 @@ public class InputManager : MonoBehaviour
     {
         if (PrimaryAttackInput)
         {
-            PrimaryAttackInput = true;
+            PrimaryAttackInput = false;
             _playerActions.HandlePrimaryAction();
         }
     }

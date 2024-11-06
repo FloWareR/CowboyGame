@@ -2,27 +2,18 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem heavyAttack;
-    [SerializeField] private ParticleSystem additionalFX;
-    
-    [SerializeField] private Transform graphicsOrigin;
-
-
     private AnimatorManager _animatorManager;
     private PlayerManager _playerManager;
     private PlayerLocomotion _playerLocomotion;
+    private ParticleManager _particleManager;
     
-    private ParticleSystem _spawnedHeavyAttack;
-    private ParticleSystem _spawnedAdditionalFx;
-
 
     private void Awake()
     {
-        _spawnedAdditionalFx = Instantiate(additionalFX, transform.position, transform.rotation, graphicsOrigin);
-        _spawnedAdditionalFx.Stop();
         _animatorManager = GetComponent<AnimatorManager>();
         _playerLocomotion = GetComponent<PlayerLocomotion>();
         _playerManager = GetComponent<PlayerManager>();
+        _particleManager = GetComponent<ParticleManager>();
     }
 
     public void HandlePrimaryAction()
@@ -36,6 +27,7 @@ public class PlayerActions : MonoBehaviour
         _playerLocomotion.RotateAtLookAt();
         _playerLocomotion.StopAllMovement();
         _animatorManager.PlayTargetAnimation("SayainAttack", true);
-        _spawnedAdditionalFx.Play();      
+        _particleManager.ToggleParticleSystem("heavyAttackAura", true); 
+    
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ResetConstrains : StateMachineBehaviour
@@ -16,7 +14,8 @@ public class ResetConstrains : StateMachineBehaviour
     {
         FindObjectOfType<PlayerLocomotion>().ReinstateMovement();
         animator.SetBool(IsHeavyAttacking, false);
-        FindObjectOfType<ParticleManager>().DestroyHeavyAttackEffect();
+        FindObjectOfType<ParticleManager>().ToggleParticleSystem("heavyAttack", false);  // To play
+
     }
 
 }

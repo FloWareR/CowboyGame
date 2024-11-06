@@ -5,14 +5,14 @@ using UnityEngine.Serialization;
 public class AnimatorManager : MonoBehaviour
 {
     [SerializeField] private Transform graphics;
-    [NonSerialized] public Animator animator;
+    [NonSerialized] public Animator AnimatorComponent;
     private int _horizontal;
     private int _vertical;
     private static readonly int IsInteracting = Animator.StringToHash("isInteracting");
 
     private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
+        AnimatorComponent = GetComponentInChildren<Animator>();
         _horizontal = Animator.StringToHash("Horizontal");
         _vertical = Animator.StringToHash("Vertical");
     }
@@ -79,13 +79,13 @@ public class AnimatorManager : MonoBehaviour
         }
         
         graphics.transform.localPosition = Vector3.zero;
-        animator.SetFloat(_horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
-        animator.SetFloat(_vertical, snappedVertical, 0.1f, Time.deltaTime);
+        AnimatorComponent.SetFloat(_horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
+        AnimatorComponent.SetFloat(_vertical, snappedVertical, 0.1f, Time.deltaTime);
     }
 
     public void PlayTargetAnimation(string targetAnimation, bool isInteracting)
     {
-        animator.SetBool(IsInteracting, isInteracting);
-        animator.CrossFade(targetAnimation, 0.2f);
+        AnimatorComponent.SetBool(IsInteracting, isInteracting);
+        AnimatorComponent.CrossFade(targetAnimation, 0.2f);
     }
 }

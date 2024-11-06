@@ -87,13 +87,13 @@ GameObject:
   m_Component:
   - component: {fileID: 163047727196846878}
   - component: {fileID: 1179329711529349953}
-  - component: {fileID: 7726837732779760115}
   - component: {fileID: 5902124458925459635}
   - component: {fileID: 2278127176781434737}
   - component: {fileID: 2113461242288825224}
   - component: {fileID: 6699954326575193794}
   - component: {fileID: 6188545446481822941}
   - component: {fileID: 4463496906174354689}
+  - component: {fileID: 7726837732779760115}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -145,22 +145,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &7726837732779760115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071199008856763463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8bfa55357eba874694403cd8400829f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heavyAttack: {fileID: 0}
-  additionalFX: {fileID: 0}
-  runTrail: {fileID: 0}
-  attackOrigin: {fileID: 0}
 --- !u!136 &5902124458925459635
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -226,22 +210,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 0}
   lookAtTarget: {fileID: 0}
-  walkSpeed: 0
-  runSpeed: 0
-  sprintSpeed: 0
+  walkSpeed: 16
+  runSpeed: 35
+  sprintSpeed: 65
   rotationSpeed: 10
-  airControlMultiplier: 0
-  groundDrag: 0
+  airControlMultiplier: 0.15
+  groundDrag: 7
   isSprinting: 0
-  isGrounded: 0
+  isGrounded: 1
   isJumping: 0
   _isRotatingToLookAt: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
-  rayCastHeightOffset: 0
-  customGravityMultiplier: 0
-  jumpForce: 0
+    m_Bits: 192
+  rayCastHeightOffset: 0.5
+  customGravityMultiplier: 1.5
+  jumpForce: 1250
 --- !u!114 &6188545446481822941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,9 +238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd109ca63b741c40a964f99765ba76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heavyAttack: {fileID: 0}
-  additionalFX: {fileID: 0}
-  attackOrigin: {fileID: 0}
 --- !u!114 &4463496906174354689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +251,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphics: {fileID: 2798964320663599258}
+--- !u!114 &7726837732779760115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071199008856763463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bfa55357eba874694403cd8400829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleList:
+  - key: runTrail
+    particlePrefab: {fileID: 198431675797158320, guid: 87ca7367c67b20949b51963d03732114, type: 3}
+    spawnOrigin: {fileID: 163047727196846878}
+  - key: heavyAttack
+    particlePrefab: {fileID: 198433428268783098, guid: 7f38f60a173ec7e4cacc9b7af686d87b, type: 3}
+    spawnOrigin: {fileID: 2098828964515501745}
+  - key: heavyAttackAura
+    particlePrefab: {fileID: 198108421688386642, guid: c1442c95595cb1d49a05606412bc0523, type: 3}
+    spawnOrigin: {fileID: 2798964320663599258}
 --- !u!1001 &2404168233039437681
 PrefabInstance:
   m_ObjectHideFlags: 0

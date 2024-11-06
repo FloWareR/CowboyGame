@@ -1076,7 +1076,7 @@ PrefabInstance:
     - target: {fileID: 6188545446481822941, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: additionalFX
       value: 
-      objectReference: {fileID: 198126008008065056, guid: c1442c95595cb1d49a05606412bc0523, type: 3}
+      objectReference: {fileID: 198108421688386642, guid: c1442c95595cb1d49a05606412bc0523, type: 3}
     - target: {fileID: 6188545446481822941, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: attackOrigin
       value: 
@@ -1086,32 +1086,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 740051760}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: runSpeed
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: jumpForce
-      value: 1250
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: walkSpeed
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: groundDrag
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: isGrounded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: jumpHeight
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: sprintSpeed
-      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: cameraObject
@@ -1137,22 +1113,6 @@ PrefabInstance:
       propertyPath: gravityIntensity
       value: -15
       objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 192
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: rayCastHeightOffset
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: airControlMultiplier
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: customGravityMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7071199008856763463, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1173,6 +1133,10 @@ PrefabInstance:
       propertyPath: attackOrigin
       value: 
       objectReference: {fileID: 2022810893}
+    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+      propertyPath: graphicsOrigin
+      value: 
+      objectReference: {fileID: 740051760}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

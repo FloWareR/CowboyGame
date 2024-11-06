@@ -106,11 +106,11 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (isSprinting && isGrounded)
         {
-            _particleManager.TriggerRunTrail();
+            _particleManager.ToggleParticleSystem("runTrail", true);  
         }
         else
         {
-            _particleManager.StopRunTrail();
+            _particleManager.ToggleParticleSystem("runTrail", false);  
         }    
     }
     
@@ -145,7 +145,7 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (isGrounded)
         {
-            _animatorManager.animator.SetBool(IsJumping, true);
+            _animatorManager.AnimatorComponent.SetBool(IsJumping, true);
             _animatorManager.PlayTargetAnimation("Jumping", false);
 
             _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

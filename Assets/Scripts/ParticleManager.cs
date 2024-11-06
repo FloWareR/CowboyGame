@@ -1,50 +1,54 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticleManager : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem heavyAttack;
-    [SerializeField] private ParticleSystem additionalFX;
-    [SerializeField] private ParticleSystem runTrail;
+    [System.Serializable]
+    public class ParticleInfo
+    {
+        public string key;
+        public ParticleSystem particlePrefab;
+        public Transform spawnOrigin;
+    }
     
-    [SerializeField] private Transform attackOrigin;
-    
-    private PlayerManager _playerManager;
-    private ParticleSystem _spawnedHeavyAttack;
-    private ParticleSystem _spawnedAdditionalFx;
-    private ParticleSystem _runTrail;
+    public List<ParticleInfo> particleList = new List<ParticleInfo>();  
+    private readonly Dictionary<string, ParticleSystem> _spawnedParticles = new Dictionary<string, ParticleSystem>();
     
     private void Awake()
     {
-        _spawnedHeavyAttack = Instantiate(heavyAttack, attackOrigin.position, attackOrigin.rotation, attackOrigin.transform);
-        _spawnedHeavyAttack.Stop();
-        _playerManager = GetComponent<PlayerManager>();
-        _runTrail = Instantiate(runTrail, transform.position, transform.rotation, transform.transform);
+        foreach (var particle in particleList)
+        {
+            var instantiatedParticle = Instantiate(
+                particle.particlePrefab,
+                particle.spawnOrigin.position,
+                particle.spawnOrigin.rotation,
+                particle.spawnOrigin
+            );
+
+            instantiatedParticle.Stop();
+            _spawnedParticles[particle.key] = instantiatedParticle;
+        }
     }
     
-    public void TriggerHeavyAttackEffect()
+    public void ToggleParticleSystem(string key, bool play)
     {
-        _spawnedHeavyAttack.Play();
-    }
-
-    public void DestroyHeavyAttackEffect()
-    {
-        _spawnedHeavyAttack.Stop();
-    }
-
-    public void TriggerRunTrail()
-    {
-        if (!_runTrail.isPlaying)
+        if (_spawnedParticles.TryGetValue(key, out var particles))
         {
-            _runTrail.Play();
+            switch (play)
+            {
+                case true when !particles.isPlaying:
+                    particles.Play();
+                    break;
+                case false when !particles.isStopped:
+                    particles.Stop();
+                    break;
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Particle with key '{key}' not found.");
         }
     }
 
-    public void StopRunTrail()
-    {
-        if (!_runTrail.isStopped)
-        {
-            _runTrail.Stop();
-        }
-    }
 
 }
