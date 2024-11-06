@@ -255,6 +255,15 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UltimateAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""0e067866-05a0-441f-99d9-8de2b741d32c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -323,6 +332,28 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
                     ""action"": ""PrimaryAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1a21737-30cf-4c5c-b960-e857522a5774"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UltimateAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ed0c5d29-fa4a-407a-94fe-db4737cd97c1"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UltimateAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -355,6 +386,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         m_PlayerActions_Sprint = m_PlayerActions.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_PrimaryAttack = m_PlayerActions.FindAction("PrimaryAttack", throwIfNotFound: true);
+        m_PlayerActions_UltimateAttack = m_PlayerActions.FindAction("UltimateAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -473,6 +505,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Sprint;
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_PrimaryAttack;
+    private readonly InputAction m_PlayerActions_UltimateAttack;
     public struct PlayerActionsActions
     {
         private @IMC_Default m_Wrapper;
@@ -480,6 +513,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_PlayerActions_Sprint;
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @PrimaryAttack => m_Wrapper.m_PlayerActions_PrimaryAttack;
+        public InputAction @UltimateAttack => m_Wrapper.m_PlayerActions_UltimateAttack;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -498,6 +532,9 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
             @PrimaryAttack.started += instance.OnPrimaryAttack;
             @PrimaryAttack.performed += instance.OnPrimaryAttack;
             @PrimaryAttack.canceled += instance.OnPrimaryAttack;
+            @UltimateAttack.started += instance.OnUltimateAttack;
+            @UltimateAttack.performed += instance.OnUltimateAttack;
+            @UltimateAttack.canceled += instance.OnUltimateAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -511,6 +548,9 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
             @PrimaryAttack.started -= instance.OnPrimaryAttack;
             @PrimaryAttack.performed -= instance.OnPrimaryAttack;
             @PrimaryAttack.canceled -= instance.OnPrimaryAttack;
+            @UltimateAttack.started -= instance.OnUltimateAttack;
+            @UltimateAttack.performed -= instance.OnUltimateAttack;
+            @UltimateAttack.canceled -= instance.OnUltimateAttack;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -547,5 +587,6 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnPrimaryAttack(InputAction.CallbackContext context);
+        void OnUltimateAttack(InputAction.CallbackContext context);
     }
 }

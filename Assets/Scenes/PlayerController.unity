@@ -495,6 +495,11 @@ MonoBehaviour:
       x: 1
       y: 1
       z: 1
+--- !u!4 &740051760 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2798964320663599258, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+  m_PrefabInstance: {fileID: 5363068029567628449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &875227142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,6 +1081,10 @@ PrefabInstance:
       propertyPath: attackOrigin
       value: 
       objectReference: {fileID: 2022810893}
+    - target: {fileID: 6188545446481822941, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
+      propertyPath: graphicsOrigin
+      value: 
+      objectReference: {fileID: 740051760}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: runSpeed
       value: 35

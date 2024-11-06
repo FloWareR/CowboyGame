@@ -13,6 +13,8 @@ public class InputManager : MonoBehaviour
     [NonSerialized] public bool SprintInput;
     [NonSerialized] public bool JumpInput;
     [NonSerialized] public bool PrimaryAttackInput;
+    [NonSerialized] public bool UltimateAttackInput;
+
 
         
     private IMC_Default _playerControls;
@@ -49,6 +51,9 @@ public class InputManager : MonoBehaviour
             _playerControls.PlayerActions.Jump.performed += i => JumpInput = true;
             _playerControls.PlayerActions.Jump.canceled += i => JumpInput = false;
 
+            _playerControls.PlayerActions.UltimateAttack.performed += i => UltimateAttackInput = true;
+            _playerControls.PlayerActions.UltimateAttack.canceled += i => UltimateAttackInput = false;
+            
             _playerControls.PlayerActions.PrimaryAttack.performed += i => PrimaryAttackInput = true;
             _playerControls.PlayerActions.PrimaryAttack.canceled += i => PrimaryAttackInput = false;
 
@@ -67,6 +72,7 @@ public class InputManager : MonoBehaviour
         HandleSprintingInput();
         HandleJumpInput();
         HandlePrimaryAttack();
+        HandleUltimateAttack();
     }
     
     private void HandleCameraInput(InputAction.CallbackContext context)
@@ -114,8 +120,17 @@ public class InputManager : MonoBehaviour
     {
         if (PrimaryAttackInput)
         {
-            PrimaryAttackInput = false;
+            PrimaryAttackInput = true;
             _playerActions.HandlePrimaryAction();
+        }
+    }
+    
+    private void HandleUltimateAttack()
+    {
+        if (UltimateAttackInput)
+        {
+            PrimaryAttackInput = false;
+            _playerActions.HandleUltimateAction();
         }
     }
     

@@ -233,6 +233,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UltimateAttack",
+                    "type": "Button",
+                    "id": "0e067866-05a0-441f-99d9-8de2b741d32c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -299,6 +308,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "PrimaryAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1a21737-30cf-4c5c-b960-e857522a5774",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UltimateAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed0c5d29-fa4a-407a-94fe-db4737cd97c1",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UltimateAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

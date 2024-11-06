@@ -16,6 +16,7 @@ public class ResetConstrains : StateMachineBehaviour
     {
         FindObjectOfType<PlayerLocomotion>().ReinstateMovement();
         animator.SetBool(IsHeavyAttacking, false);
+        FindObjectOfType<ParticleManager>().DestroyHeavyAttackEffect();
     }
 
 }
