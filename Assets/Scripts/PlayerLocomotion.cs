@@ -122,8 +122,13 @@ public class PlayerLocomotion : MonoBehaviour
         if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, 0.5f, groundLayer))
         {
             if (!isGrounded && !_playerManager.isInteracting)
+            {
                 _animatorManager.PlayTargetAnimation("Landing", true);
+                var particlePosition = transform.position;
+                _particleManager.SpawnTemporaryParticle("landTrail", transform.position, Quaternion.identity);
+            }
 
+            
             isGrounded = true;
             isJumping = false;
             _rigidbody.drag = groundDrag; 
@@ -149,6 +154,8 @@ public class PlayerLocomotion : MonoBehaviour
             _animatorManager.PlayTargetAnimation("Jumping", false);
 
             _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            var particlePosition = transform.position;
+            _particleManager.SpawnTemporaryParticle("jumpTrail", transform.position, Quaternion.identity);
 
             isGrounded = false;
             isJumping = true;

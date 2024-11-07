@@ -9,6 +9,7 @@ public class ParticleManager : MonoBehaviour
         public string key;
         public ParticleSystem particlePrefab;
         public Transform spawnOrigin;
+        public bool instantiateInAwake; 
     }
     
     public List<ParticleInfo> particleList = new List<ParticleInfo>();  
@@ -18,6 +19,7 @@ public class ParticleManager : MonoBehaviour
     {
         foreach (var particle in particleList)
         {
+            if (!particle.instantiateInAwake) continue;
             var instantiatedParticle = Instantiate(
                 particle.particlePrefab,
                 particle.spawnOrigin.position,
@@ -39,7 +41,7 @@ public class ParticleManager : MonoBehaviour
                 case true when !particles.isPlaying:
                     particles.Play();
                     break;
-                case false when !particles.isStopped:
+                case false when particles.isPlaying:
                     particles.Stop();
                     break;
             }
@@ -50,5 +52,22 @@ public class ParticleManager : MonoBehaviour
         }
     }
 
+    public void SpawnTemporaryParticle(string key, Vector3 position, Quaternion rotation)
+    {
+        if (!_spawnedParticles.TryGetValue(key, out var particlePrefab))
+        {
+            particlePrefab = particleList.Find(p => p.key == key)?.particlePrefab;
 
+            if (!particlePrefab)
+            {
+                Debug.LogWarning($"Particle with key '{key}' not found in particle list.");
+                return;
+            }
+        }
+
+        var tempParticle = Instantiate(particlePrefab, position, rotation);
+        tempParticle.Play();
+
+        Destroy(tempParticle.gameObject, tempParticle.main.duration + tempParticle.main.startLifetime.constantMax);
+    }
 }

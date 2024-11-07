@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
+    [SerializeField] private Transform attackPoint;
+    
+    
     private AnimatorManager _animatorManager;
     private PlayerManager _playerManager;
     private PlayerLocomotion _playerLocomotion;
@@ -18,7 +21,7 @@ public class PlayerActions : MonoBehaviour
 
     public void HandlePrimaryAction()
     {
-        Debug.Log("SHOOT");
+        _particleManager.SpawnTemporaryParticle("magicProjectile", attackPoint.position, attackPoint.rotation );
     }
 
     public void HandleUltimateAction()
