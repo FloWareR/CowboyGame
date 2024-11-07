@@ -264,6 +264,15 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondaryAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a874f2b-e91d-43a4-b729-cc12744a5f27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -281,7 +290,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ac435912-b6ac-4cc8-81a0-2797fe561942"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -354,6 +363,28 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
                     ""action"": ""UltimateAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f5ab7d5-9a8c-40ea-b7ab-74dfa8fd9205"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6c877be-fb3a-4b2b-a228-b7e4dab23c32"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -387,6 +418,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_PrimaryAttack = m_PlayerActions.FindAction("PrimaryAttack", throwIfNotFound: true);
         m_PlayerActions_UltimateAttack = m_PlayerActions.FindAction("UltimateAttack", throwIfNotFound: true);
+        m_PlayerActions_SecondaryAttack = m_PlayerActions.FindAction("SecondaryAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -506,6 +538,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_PrimaryAttack;
     private readonly InputAction m_PlayerActions_UltimateAttack;
+    private readonly InputAction m_PlayerActions_SecondaryAttack;
     public struct PlayerActionsActions
     {
         private @IMC_Default m_Wrapper;
@@ -514,6 +547,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @PrimaryAttack => m_Wrapper.m_PlayerActions_PrimaryAttack;
         public InputAction @UltimateAttack => m_Wrapper.m_PlayerActions_UltimateAttack;
+        public InputAction @SecondaryAttack => m_Wrapper.m_PlayerActions_SecondaryAttack;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -535,6 +569,9 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
             @UltimateAttack.started += instance.OnUltimateAttack;
             @UltimateAttack.performed += instance.OnUltimateAttack;
             @UltimateAttack.canceled += instance.OnUltimateAttack;
+            @SecondaryAttack.started += instance.OnSecondaryAttack;
+            @SecondaryAttack.performed += instance.OnSecondaryAttack;
+            @SecondaryAttack.canceled += instance.OnSecondaryAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -551,6 +588,9 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
             @UltimateAttack.started -= instance.OnUltimateAttack;
             @UltimateAttack.performed -= instance.OnUltimateAttack;
             @UltimateAttack.canceled -= instance.OnUltimateAttack;
+            @SecondaryAttack.started -= instance.OnSecondaryAttack;
+            @SecondaryAttack.performed -= instance.OnSecondaryAttack;
+            @SecondaryAttack.canceled -= instance.OnSecondaryAttack;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -588,5 +628,6 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPrimaryAttack(InputAction.CallbackContext context);
         void OnUltimateAttack(InputAction.CallbackContext context);
+        void OnSecondaryAttack(InputAction.CallbackContext context);
     }
 }

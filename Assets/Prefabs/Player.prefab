@@ -211,9 +211,9 @@ MonoBehaviour:
   cameraObject: {fileID: 0}
   lookAtTarget: {fileID: 0}
   walkSpeed: 16
-  runSpeed: 35
-  sprintSpeed: 65
-  rotationSpeed: 10
+  runSpeed: 40
+  sprintSpeed: 85
+  rotationSpeed: 20
   airControlMultiplier: 0.15
   groundDrag: 7
   isSprinting: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd109ca63b741c40a964f99765ba76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 5251582036832617638}
 --- !u!114 &4463496906174354689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd19a556ff8fea43be4abb6637d0695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphics: {fileID: 0}
+  graphics: {fileID: 4227849919088425624}
 --- !u!114 &7726837732779760115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,14 +268,26 @@ MonoBehaviour:
   - key: runTrail
     particlePrefab: {fileID: 198431675797158320, guid: 87ca7367c67b20949b51963d03732114, type: 3}
     spawnOrigin: {fileID: 163047727196846878}
-    instantiateInAwake: 0
+    instantiateInAwake: 1
   - key: heavyAttack
     particlePrefab: {fileID: 198433428268783098, guid: 7f38f60a173ec7e4cacc9b7af686d87b, type: 3}
     spawnOrigin: {fileID: 2098828964515501745}
-    instantiateInAwake: 0
+    instantiateInAwake: 1
   - key: heavyAttackAura
     particlePrefab: {fileID: 198108421688386642, guid: c1442c95595cb1d49a05606412bc0523, type: 3}
-    spawnOrigin: {fileID: 0}
+    spawnOrigin: {fileID: 4227849919088425624}
+    instantiateInAwake: 1
+  - key: jumpTrail
+    particlePrefab: {fileID: 198109754318447844, guid: 6dc27ea6bca9730489b36207af0c7d64, type: 3}
+    spawnOrigin: {fileID: 4227849919088425624}
+    instantiateInAwake: 0
+  - key: landTrail
+    particlePrefab: {fileID: 198121459679799664, guid: b7c8d5a58fce1d5418d10f7b0b51c446, type: 3}
+    spawnOrigin: {fileID: 4227849919088425624}
+    instantiateInAwake: 0
+  - key: magicProjectile
+    particlePrefab: {fileID: 198721829763906112, guid: 6cf36a334a0e5754ea36fca06014b86a, type: 3}
+    spawnOrigin: {fileID: 2098828964515501745}
     instantiateInAwake: 0
 --- !u!1001 &8247209653309665143
 PrefabInstance:

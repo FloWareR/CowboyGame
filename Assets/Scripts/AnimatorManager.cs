@@ -10,11 +10,13 @@ public class AnimatorManager : MonoBehaviour
     private int _vertical;
     private static readonly int IsInteracting = Animator.StringToHash("isInteracting");
 
+    private PlayerManager _playerManager;
     private void Awake()
     {
         AnimatorComponent = GetComponentInChildren<Animator>();
         _horizontal = Animator.StringToHash("Horizontal");
         _vertical = Animator.StringToHash("Vertical");
+        _playerManager = FindObjectOfType<PlayerManager>();
     }
 
     public void UpdateAnimatorValues(float horizontalMovement, float verticalMovement, bool isSprinting)
@@ -81,6 +83,7 @@ public class AnimatorManager : MonoBehaviour
         graphics.transform.localPosition = Vector3.zero;
         AnimatorComponent.SetFloat(_horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
         AnimatorComponent.SetFloat(_vertical, snappedVertical, 0.1f, Time.deltaTime);
+
     }
 
     public void PlayTargetAnimation(string targetAnimation, bool isInteracting)

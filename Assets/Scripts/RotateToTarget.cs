@@ -12,7 +12,6 @@ public class RotateToTarget : MonoBehaviour
     {
         Debug.DrawRay(attackOrigin.position, lookAt.forward * 100, Color.red);
         transform.LookAt(lookAt);
-
-
+        
     }
 }

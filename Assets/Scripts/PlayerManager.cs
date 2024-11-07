@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
     private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
     private static readonly int IsHeavyAttacking = Animator.StringToHash("isHeavyAttacking");
+    private static readonly int IsIdle = Animator.StringToHash("isIdle");
+    private static readonly int CameraDelta = Animator.StringToHash("CameraDelta");
 
     private void Awake()
     {

@@ -14,17 +14,20 @@ public class InputManager : MonoBehaviour
     [NonSerialized] public bool JumpInput;
     [NonSerialized] public bool PrimaryAttackInput;
     [NonSerialized] public bool UltimateAttackInput;
+    [NonSerialized] public bool SecondaryAttackInput;
+
     
     public Vector2 movementInput;
     public Vector2 cameraInput;
 
     private bool _isJoystickInput;
-
+    
     private IMC_Default _playerControls;
     private AnimatorManager _animatorManager;
     private PlayerLocomotion _playerLocomotion;
     private CameraManager _cameraManager;
     private PlayerActions _playerActions;
+    private PlayerManager _playerManager;
     
 
 
@@ -34,6 +37,7 @@ public class InputManager : MonoBehaviour
         _playerLocomotion = GetComponent<PlayerLocomotion>();
         _cameraManager = FindObjectOfType<CameraManager>();
         _playerActions = GetComponent<PlayerActions>();
+        _playerManager = GetComponent<PlayerManager>();
     }
 
     private void OnEnable()
@@ -55,6 +59,9 @@ public class InputManager : MonoBehaviour
             
             _playerControls.PlayerActions.PrimaryAttack.performed += i => PrimaryAttackInput = true;
             _playerControls.PlayerActions.PrimaryAttack.canceled += i => PrimaryAttackInput = false;
+            
+            _playerControls.PlayerActions.SecondaryAttack.performed += i => SecondaryAttackInput = true;
+            _playerControls.PlayerActions.SecondaryAttack.canceled += i => SecondaryAttackInput = false;
 
         }
         _playerControls.Enable();
@@ -72,6 +79,7 @@ public class InputManager : MonoBehaviour
         HandleJumpInput();
         HandlePrimaryAttack();
         HandleUltimateAttack();
+        HandleSecondaryAttack();
     }
     
     private void InputOriginChecker(InputAction.CallbackContext context)
@@ -84,19 +92,19 @@ public class InputManager : MonoBehaviour
     {
         VerticalInput = movementInput.y;
         HorizontalInput = movementInput.x;
-
+        Debug.Log($"Vertical: {VerticalInput}, Horizontal: {HorizontalInput}");
         CameraInputY = cameraInput.y;
         CameraInputX = cameraInput.x;
 
         _cameraManager.isJoystickInput = _isJoystickInput;
         
         MoveAmount = Mathf.Clamp01(Mathf.Abs(HorizontalInput) + Mathf.Abs(VerticalInput));
-        _animatorManager.UpdateAnimatorValues(0f, MoveAmount, _playerLocomotion.isSprinting);
+        _animatorManager.UpdateAnimatorValues(HorizontalInput, VerticalInput, _playerLocomotion.isSprinting);
     }
     
     private void HandleSprintingInput()
     {
-        if (SprintInput && MoveAmount > 0.5f)
+        if (SprintInput && VerticalInput > 0.5f && Mathf.Abs(HorizontalInput) < 0.25f  && _playerLocomotion.isGrounded)
         {
             _playerLocomotion.isSprinting = true;
         }
@@ -130,6 +138,20 @@ public class InputManager : MonoBehaviour
         {
             PrimaryAttackInput = false;
             _playerActions.HandleUltimateAction();
+        }
+    }
+    
+    
+    private void HandleSecondaryAttack()
+    {
+        if (SecondaryAttackInput)
+        {
+            _playerActions.HandleSecondaryAction();
+            _cameraManager.isZoomedIn = true;
+        }
+        else
+        {
+            _cameraManager.isZoomedIn = false;
         }
     }
     

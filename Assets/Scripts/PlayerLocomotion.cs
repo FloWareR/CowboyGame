@@ -90,16 +90,19 @@ public class PlayerLocomotion : MonoBehaviour
     private void HandleRotation()
     {
         if (_isRotatingToLookAt) return;
-        var targetDirection = (cameraObject.forward * _inputManager.VerticalInput) + (cameraObject.right * _inputManager.HorizontalInput);
-        targetDirection.Normalize();
+
+        Vector3 targetDirection = cameraObject.forward;
         targetDirection.y = 0f;
+        targetDirection.Normalize();
 
-        if (targetDirection == Vector3.zero) targetDirection = transform.forward;
+        if (targetDirection == Vector3.zero) 
+            targetDirection = transform.forward;
 
-        var targetRotation = Quaternion.LookRotation(targetDirection);
-        var trueRotation = isGrounded ? rotationSpeed : rotationSpeed * airControlMultiplier;
-        var playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, trueRotation * Time.deltaTime);
-        transform.rotation = playerRotation;
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+        float trueRotation = isGrounded ? rotationSpeed : rotationSpeed * airControlMultiplier;
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, trueRotation * Time.deltaTime);
     }
 
     private void HandleTrail()
