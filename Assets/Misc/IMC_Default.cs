@@ -273,6 +273,15 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MeleeAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""927ee0e9-19a5-44f4-96fe-dea669d9593d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -385,6 +394,28 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
                     ""action"": ""SecondaryAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b388567e-5772-4def-ab58-fec64102d992"",
+                    ""path"": ""<Mouse>/forwardButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""489e03ce-9e46-4b19-ab5f-28dea6126f4b"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -419,6 +450,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         m_PlayerActions_PrimaryAttack = m_PlayerActions.FindAction("PrimaryAttack", throwIfNotFound: true);
         m_PlayerActions_UltimateAttack = m_PlayerActions.FindAction("UltimateAttack", throwIfNotFound: true);
         m_PlayerActions_SecondaryAttack = m_PlayerActions.FindAction("SecondaryAttack", throwIfNotFound: true);
+        m_PlayerActions_MeleeAttack = m_PlayerActions.FindAction("MeleeAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -539,6 +571,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_PrimaryAttack;
     private readonly InputAction m_PlayerActions_UltimateAttack;
     private readonly InputAction m_PlayerActions_SecondaryAttack;
+    private readonly InputAction m_PlayerActions_MeleeAttack;
     public struct PlayerActionsActions
     {
         private @IMC_Default m_Wrapper;
@@ -548,6 +581,7 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         public InputAction @PrimaryAttack => m_Wrapper.m_PlayerActions_PrimaryAttack;
         public InputAction @UltimateAttack => m_Wrapper.m_PlayerActions_UltimateAttack;
         public InputAction @SecondaryAttack => m_Wrapper.m_PlayerActions_SecondaryAttack;
+        public InputAction @MeleeAttack => m_Wrapper.m_PlayerActions_MeleeAttack;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -572,6 +606,9 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
             @SecondaryAttack.started += instance.OnSecondaryAttack;
             @SecondaryAttack.performed += instance.OnSecondaryAttack;
             @SecondaryAttack.canceled += instance.OnSecondaryAttack;
+            @MeleeAttack.started += instance.OnMeleeAttack;
+            @MeleeAttack.performed += instance.OnMeleeAttack;
+            @MeleeAttack.canceled += instance.OnMeleeAttack;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -591,6 +628,9 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
             @SecondaryAttack.started -= instance.OnSecondaryAttack;
             @SecondaryAttack.performed -= instance.OnSecondaryAttack;
             @SecondaryAttack.canceled -= instance.OnSecondaryAttack;
+            @MeleeAttack.started -= instance.OnMeleeAttack;
+            @MeleeAttack.performed -= instance.OnMeleeAttack;
+            @MeleeAttack.canceled -= instance.OnMeleeAttack;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -629,5 +669,6 @@ public partial class @IMC_Default: IInputActionCollection2, IDisposable
         void OnPrimaryAttack(InputAction.CallbackContext context);
         void OnUltimateAttack(InputAction.CallbackContext context);
         void OnSecondaryAttack(InputAction.CallbackContext context);
+        void OnMeleeAttack(InputAction.CallbackContext context);
     }
 }

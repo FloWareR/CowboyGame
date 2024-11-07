@@ -17,7 +17,6 @@ public class PlayerLocomotion : MonoBehaviour
     [Header("Movement Flags")]
     public bool isSprinting;
     public bool isGrounded;
-    public bool isJumping;
     public bool _isRotatingToLookAt; 
 
     [SerializeField] private LayerMask groundLayer;
@@ -35,7 +34,6 @@ public class PlayerLocomotion : MonoBehaviour
     private PlayerManager _playerManager;
     private AnimatorManager _animatorManager;
     private ParticleManager _particleManager;
-    private static readonly int IsJumping = Animator.StringToHash("isJumping");
 
 
     private void Awake()
@@ -133,7 +131,6 @@ public class PlayerLocomotion : MonoBehaviour
 
             
             isGrounded = true;
-            isJumping = false;
             _rigidbody.drag = groundDrag; 
         }
         else if (isGrounded)
@@ -153,15 +150,11 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (isGrounded)
         {
-            _animatorManager.AnimatorComponent.SetBool(IsJumping, true);
-            _animatorManager.PlayTargetAnimation("Jumping", false);
-
             _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             var particlePosition = transform.position;
             _particleManager.SpawnTemporaryParticle("jumpTrail", transform.position, Quaternion.identity);
 
             isGrounded = false;
-            isJumping = true;
         }
     }
 

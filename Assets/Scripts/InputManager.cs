@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
@@ -15,6 +14,8 @@ public class InputManager : MonoBehaviour
     [NonSerialized] public bool PrimaryAttackInput;
     [NonSerialized] public bool UltimateAttackInput;
     [NonSerialized] public bool SecondaryAttackInput;
+    [NonSerialized] public bool MeleeAttackInput;
+
 
     
     public Vector2 movementInput;
@@ -61,7 +62,10 @@ public class InputManager : MonoBehaviour
             _playerControls.PlayerActions.PrimaryAttack.canceled += i => PrimaryAttackInput = false;
             
             _playerControls.PlayerActions.SecondaryAttack.performed += i => SecondaryAttackInput = true;
-            _playerControls.PlayerActions.SecondaryAttack.canceled += i => SecondaryAttackInput = false;
+            _playerControls.PlayerActions.SecondaryAttack.canceled += i => SecondaryAttackInput = false;            
+            
+            _playerControls.PlayerActions.MeleeAttack.performed += i => MeleeAttackInput = true;
+            _playerControls.PlayerActions.MeleeAttack.canceled += i => MeleeAttackInput = false;
 
         }
         _playerControls.Enable();
@@ -80,6 +84,7 @@ public class InputManager : MonoBehaviour
         HandlePrimaryAttack();
         HandleUltimateAttack();
         HandleSecondaryAttack();
+        HandleMeleeAttack();
     }
     
     private void InputOriginChecker(InputAction.CallbackContext context)
@@ -92,7 +97,6 @@ public class InputManager : MonoBehaviour
     {
         VerticalInput = movementInput.y;
         HorizontalInput = movementInput.x;
-        Debug.Log($"Vertical: {VerticalInput}, Horizontal: {HorizontalInput}");
         CameraInputY = cameraInput.y;
         CameraInputX = cameraInput.x;
 
@@ -152,6 +156,15 @@ public class InputManager : MonoBehaviour
         else
         {
             _cameraManager.isZoomedIn = false;
+        }
+    }
+
+    private void HandleMeleeAttack()
+    {
+        if (MeleeAttackInput)
+        {
+            MeleeAttackInput = false;
+            _playerActions.HandleMeleeAction();
         }
     }
     
