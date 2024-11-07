@@ -676,11 +676,6 @@ MonoBehaviour:
       x: 1
       y: 1
       z: 1
---- !u!4 &689401835 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4227849919088425624, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-  m_PrefabInstance: {fileID: 5363068029567628449}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &829945782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,10 +1216,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4463496906174354689, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: graphics
-      value: 
-      objectReference: {fileID: 689401835}
     - target: {fileID: 5251582036832617638, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1254,10 +1245,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6188545446481822941, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: attackPoint
-      value: 
-      objectReference: {fileID: 1595025464}
-    - target: {fileID: 6188545446481822941, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: heavyAttack
       value: 
       objectReference: {fileID: 198433428268783098, guid: 7f38f60a173ec7e4cacc9b7af686d87b, type: 3}
@@ -1278,16 +1265,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9000000, guid: 35c44a97c30e4e946a0f4d3310613b95, type: 3}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: runSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: jumpHeight
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: sprintSpeed
-      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: cameraObject
@@ -1297,10 +1276,6 @@ PrefabInstance:
       propertyPath: lookAtTarget
       value: 
       objectReference: {fileID: 431892043}
-    - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: rotationSpeed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6699954326575193794, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: fallingVelocity
       value: 55
@@ -1344,62 +1319,6 @@ PrefabInstance:
     - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
       propertyPath: graphicsOrigin
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[3].key
-      value: jumpTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[4].key
-      value: landTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[5].key
-      value: magicProjectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[2].spawnOrigin
-      value: 
-      objectReference: {fileID: 689401835}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[3].spawnOrigin
-      value: 
-      objectReference: {fileID: 689401835}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[4].spawnOrigin
-      value: 
-      objectReference: {fileID: 689401835}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[5].spawnOrigin
-      value: 
-      objectReference: {fileID: 2022810893}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[3].particlePrefab
-      value: 
-      objectReference: {fileID: 198109754318447844, guid: 6dc27ea6bca9730489b36207af0c7d64, type: 3}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[4].particlePrefab
-      value: 
-      objectReference: {fileID: 198121459679799664, guid: b7c8d5a58fce1d5418d10f7b0b51c446, type: 3}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[5].particlePrefab
-      value: 
-      objectReference: {fileID: 198721829763906112, guid: 6cf36a334a0e5754ea36fca06014b86a, type: 3}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[0].instantiateInAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[1].instantiateInAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726837732779760115, guid: 5128b395fdaebdb4b96157023e1f34aa, type: 3}
-      propertyPath: particleList.Array.data[2].instantiateInAwake
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
