@@ -42,7 +42,7 @@ public class PlayerActions : MonoBehaviour
 
     public void HandleMeleeAction()
     {
-        Debug.Log("punch");
+        if (_playerManager.isInteracting) return;
         _animatorManager.PlayTargetAnimation("HeavyPunching", true);
     }
 

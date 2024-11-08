@@ -72,7 +72,7 @@ public class SpawnProjectilesScript : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetKey (KeyCode.Space) && Time.time >= timeToFire || Input.GetMouseButton (0) && Time.time >= timeToFire) {
-			timeToFire = Time.time + 1f / effectToSpawn.GetComponent<ProjectileMoveScript>().fireRate;
+			timeToFire = Time.time + 1f / effectToSpawn.GetComponent<ProjectileScript>().fireRate;
 			SpawnVFX ();	
 		}
 
@@ -112,7 +112,7 @@ public class SpawnProjectilesScript : MonoBehaviour {
             {
                 if (target != null)
                 {                    
-                    vfx.GetComponent<ProjectileMoveScript>().SetTarget(target, rotateToMouse);
+                    vfx.GetComponent<ProjectileScript>().SetTarget(target, rotateToMouse);
                     rotateToMouse.RotateToMouse(vfx, target.transform.position);                    
                 }
                 else

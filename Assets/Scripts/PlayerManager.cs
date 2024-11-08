@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        ReloadCurrentAndAdditiveScene();
         _inputManager.HandleAllInput();
     }
 
@@ -40,4 +42,20 @@ public class PlayerManager : MonoBehaviour
         isHeavyAttacking = _animator.GetBool(IsHeavyAttacking);
         _animator.SetBool(IsGrounded, _playerLocomotion.isGrounded);
     }
+    
+    private void ReloadCurrentAndAdditiveScene()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            // Get the current active scene name
+            string currentSceneName = SceneManager.GetActiveScene().name;
+        
+            // Reload the current scene
+            SceneManager.LoadScene(currentSceneName);
+        
+            // Load the additional scene additively
+            SceneManager.LoadScene("Slavica Free", LoadSceneMode.Additive);
+        }
+    }
+
 }
