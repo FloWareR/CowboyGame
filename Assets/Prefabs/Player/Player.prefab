@@ -416,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracting: 0
   isHeavyAttacking: 0
+  isHeavyPunching: 0
 --- !u!114 &6699954326575193794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +439,6 @@ MonoBehaviour:
   groundDrag: 7
   isSprinting: 0
   isGrounded: 1
-  isJumping: 0
   _isRotatingToLookAt: 0
   groundLayer:
     serializedVersion: 2
@@ -565,6 +565,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d260e18cb0323cd46b9b22d24f5ec05b, type: 2}
+    - target: {fileID: 6992461296056172994, guid: 35c44a97c30e4e946a0f4d3310613b95, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f019fdd94e5ae0478f4cb5b65f89454, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
