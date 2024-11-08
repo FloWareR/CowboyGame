@@ -2719,7 +2719,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "25c39418e1ae43e299e77171f13d4ea7",
     "m_Id": 0,
-    "m_DisplayName": "cloath secondary",
+    "m_DisplayName": "cloth secondary",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -3588,40 +3588,40 @@
             "m_Id": "9db9de0b86f846cc900f4913880d3996"
         },
         {
-            "m_Id": "013acf6099924e698a44c28690d6fc7e"
-        },
-        {
-            "m_Id": "2163a027f9be4578bc791e9a3c5fb53d"
-        },
-        {
-            "m_Id": "47b108c67415487cbb34cf107108b54d"
-        },
-        {
-            "m_Id": "fc0931a26f134f5aa93a7fd54e5404c2"
-        },
-        {
-            "m_Id": "907f1ce5550e49f89e6bd428edfdec86"
-        },
-        {
-            "m_Id": "d0a8c7efae3f4f5dbf9ad746f54d7d2e"
-        },
-        {
             "m_Id": "7ecc33a028734268b90be663277972ff"
+        },
+        {
+            "m_Id": "013acf6099924e698a44c28690d6fc7e"
         },
         {
             "m_Id": "f82f3d17d5044f898c046a618e66272d"
         },
         {
+            "m_Id": "2163a027f9be4578bc791e9a3c5fb53d"
+        },
+        {
             "m_Id": "212ad1ed2397493ebbd2b542389464ae"
+        },
+        {
+            "m_Id": "47b108c67415487cbb34cf107108b54d"
         },
         {
             "m_Id": "9ee7acd5f69a4ca7bc2d848259c9d476"
         },
         {
+            "m_Id": "fc0931a26f134f5aa93a7fd54e5404c2"
+        },
+        {
             "m_Id": "fe67d156d8c04f6ba7a34c665829f821"
         },
         {
+            "m_Id": "907f1ce5550e49f89e6bd428edfdec86"
+        },
+        {
             "m_Id": "0ab6a5f26c6d4c4297d0221e1cb8bb7e"
+        },
+        {
+            "m_Id": "d0a8c7efae3f4f5dbf9ad746f54d7d2e"
         },
         {
             "m_Id": "235f4d74038e4f52a6515f6b91861244"
@@ -8662,7 +8662,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "e5277ceb194c4782b2d06cccacafff7d",
     "m_Id": 0,
-    "m_DisplayName": "cloath main",
+    "m_DisplayName": "cloth main",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -9273,10 +9273,10 @@
     "m_Guid": {
         "m_GuidSerialized": "904a00f5-33df-4a72-8047-3b0c07039cd0"
     },
-    "m_Name": "cloath main",
+    "m_Name": "cloth main",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "cloath main",
-    "m_DefaultReferenceName": "_cloath_main",
+    "m_RefNameGeneratedByDisplayName": "cloth main",
+    "m_DefaultReferenceName": "_cloth_main",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -9435,10 +9435,10 @@
     "m_Guid": {
         "m_GuidSerialized": "f93641c6-dfe2-4fb9-87fb-51494dc62cbc"
     },
-    "m_Name": "cloath secondary",
+    "m_Name": "cloth secondary",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "cloath secondary",
-    "m_DefaultReferenceName": "_cloath_secondary",
+    "m_RefNameGeneratedByDisplayName": "cloth secondary",
+    "m_DefaultReferenceName": "_cloth_secondary",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
