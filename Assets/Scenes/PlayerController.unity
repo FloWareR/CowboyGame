@@ -435,6 +435,37 @@ CapsuleCollider:
   m_Height: 0.366625
   m_Direction: 1
   m_Center: {x: 0, y: 0.1833125, z: 0}
+--- !u!1 &282705623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 282705624}
+  m_Layer: 0
+  m_Name: -------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &282705624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282705623}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &368212500
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9e6fdb7bfc45d4d48ad99eedc050a082, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1803,6 +1834,7 @@ GameObject:
   - component: {fileID: 1168264239}
   - component: {fileID: 1168264240}
   - component: {fileID: 1168264241}
+  - component: {fileID: 1168264242}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Damageable
@@ -1839,9 +1871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c0959e0e012124d98270d22721b6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 0.1
-  maxDistance: 2
-  player: {fileID: 2071788721}
 --- !u!195 &1168264238
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1903,11 +1932,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 723d8a7043cdf28489ec7bd14763d516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5000
+  maxHealth: 100
   currentHealth: 0
   blinkIntensity: 10
   blinkDuration: 0.1
-  dieForce: 25
+--- !u!114 &1168264242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168264231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef81fe5a3a574b4fba1c7cd2471abde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: 2
+  config: {fileID: 11400000, guid: 4c542b199c9cdfd43be7ddadd13c6a48, type: 2}
+  navMeshAgent: {fileID: 0}
+  ragdoll: {fileID: 0}
+  healthBar: {fileID: 0}
+  skinnedMeshRenderer: {fileID: 0}
+  playerTranform: {fileID: 0}
 --- !u!1 &1199529087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2392,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.34820938, y: 0.4777425, z: 0.27950624}
   m_Center: {x: 0.00000028312206, y: 0.23887125, z: -0.020462468}
+--- !u!1 &1431413934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1431413935}
+  m_Layer: 0
+  m_Name: -------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1431413935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431413934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1535808814 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3834132971535382864, guid: 24fc2c3e62c52bf4e9e63fd980b8e85d, type: 3}
@@ -3133,11 +3211,13 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1754808668}
+  - {fileID: 368212502}
+  - {fileID: 1431413935}
   - {fileID: 2526295832055871661}
   - {fileID: 5363068029567628449}
-  - {fileID: 1754808668}
-  - {fileID: 225302938}
-  - {fileID: 368212502}
   - {fileID: 1168264235}
+  - {fileID: 282705624}
   - {fileID: 1693695460}
+  - {fileID: 225302938}
   - {fileID: 14591228}
