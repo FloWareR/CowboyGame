@@ -60,16 +60,18 @@ Material:
     - _buckle_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
     - _cloath_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
     - _cloath_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
+    - _cloth_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
+    - _cloth_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
     - _leather_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
     - _leather_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
     - _pants_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
     - _pants_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
-    - _potion_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
-    - _potion_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
-    - _robe_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
-    - _robe_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
-    - _skin_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
-    - _skin_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
+    - _potion_main: {r: 0, g: 1, b: 0.20552826, a: 0}
+    - _potion_secondary: {r: 0.28964388, g: 1, b: 0.1415093, a: 0}
+    - _robe_main: {r: 1, g: 0.07319698, b: 0, a: 0}
+    - _robe_secondary: {r: 1, g: 0.28102458, b: 0, a: 0}
+    - _skin_main: {r: 1, g: 0.96104723, b: 0.88113207, a: 0}
+    - _skin_secondary: {r: 1, g: 0.93140495, b: 0.6245283, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8572433336607982669
 MonoBehaviour:
