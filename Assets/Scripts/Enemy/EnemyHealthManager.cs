@@ -71,7 +71,7 @@ public class EnemyHealthManager : MonoBehaviour
 
             elapsedTime = 0f;
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.025f);
         }
 
         _propertyBlock.SetFloat("_BlinkIntensity", 1);
