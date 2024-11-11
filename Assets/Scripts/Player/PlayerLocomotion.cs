@@ -42,7 +42,7 @@ public class PlayerLocomotion : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _playerManager = GetComponent<PlayerManager>();
         _animatorManager = GetComponent<AnimatorManager>();
-        _particleManager = GetComponent<ParticleManager>();
+        _particleManager = FindObjectOfType<ParticleManager>();
 
         if (Camera.main != null) cameraObject = Camera.main.transform;
 

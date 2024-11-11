@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class AiStateMachine
 {
     public AiState[] States;

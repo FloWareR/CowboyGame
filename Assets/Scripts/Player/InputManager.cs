@@ -79,6 +79,10 @@ public class InputManager : MonoBehaviour
     public void HandleAllInput()
     {
         HandleMovementInput();
+    }
+
+    public void HandleActions()
+    {
         HandleSprintingInput();
         HandleJumpInput();
         HandlePrimaryAttack();

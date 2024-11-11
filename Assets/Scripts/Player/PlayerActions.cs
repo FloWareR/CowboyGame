@@ -16,7 +16,7 @@ public class PlayerActions : MonoBehaviour
         _animatorManager = GetComponent<AnimatorManager>();
         _playerLocomotion = GetComponent<PlayerLocomotion>();
         _playerManager = GetComponent<PlayerManager>();
-        _particleManager = GetComponent<ParticleManager>();
+        _particleManager = FindObjectOfType<ParticleManager>();
     }
 
     public void HandlePrimaryAction()

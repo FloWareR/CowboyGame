@@ -1,24 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Ragdoll : MonoBehaviour
 {
     private Rigidbody[] rigidbodies;
     private Animator _animator;
-    
+    public bool isPlayer;
     void Start()
     {
         rigidbodies = GetComponentsInChildren<Rigidbody>();
-        _animator = GetComponentInChildren<Animator>();
-        
-        DeactivateRagdoll();
+        if (!isPlayer)
+        {
+            _animator = GetComponentInChildren<Animator>();
+        }
+
+        if (!isPlayer)
+        {
+            DeactivateRagdoll();
+        }
+        else
+        {
+            {
+                ActivateRagdoll();
+            }
+        }
     }
 
     public void DeactivateRagdoll()
     {
-        _animator.enabled = true;
+        if (!isPlayer)
+        {
+            _animator.enabled = true;
+        }
         foreach (var rigidbody in rigidbodies)
         {
             rigidbody.isKinematic = true;
@@ -28,7 +40,10 @@ public class Ragdoll : MonoBehaviour
 
     public void ActivateRagdoll()
     {
-        _animator.enabled = false;
+        if (!isPlayer)
+        {
+            _animator.enabled = false;
+        }
         foreach (var rigidbody in rigidbodies)
         {
             rigidbody.isKinematic = false;

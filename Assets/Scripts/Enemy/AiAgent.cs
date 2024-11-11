@@ -1,19 +1,19 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 public class AiAgent : MonoBehaviour
 {
     public AiStateID initialState;
     public AiStateMachine StateMachine;
     public AiAgentConfig config;
+    public bool isInteracting;
     
     [HideInInspector] public NavMeshAgent navMeshAgent;
     [HideInInspector] public Ragdoll ragdoll;
     [HideInInspector] public UIHealthBar healthBar;
     [HideInInspector] public SkinnedMeshRenderer skinnedMeshRenderer;
     [HideInInspector] public Transform playerTranform;
+    [HideInInspector] public AnimatorManager animatorManager;
 
     
     void Start()
@@ -27,6 +27,7 @@ public class AiAgent : MonoBehaviour
     void Update()
     {
         StateMachine.Update();
+        isInteracting = animatorManager.AnimatorComponent.GetBool("isInteracting");
     }
 
 
@@ -37,6 +38,8 @@ public class AiAgent : MonoBehaviour
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         healthBar = GetComponentInChildren<UIHealthBar>();
         playerTranform = GameObject.FindGameObjectWithTag("Player").transform;
+        animatorManager = GetComponent<AnimatorManager>();
+        navMeshAgent.stoppingDistance = config.stoppingDistance;
     }
 
     private void GetAllStates()

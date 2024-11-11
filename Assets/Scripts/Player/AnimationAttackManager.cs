@@ -14,7 +14,7 @@ public class AnimationAttackManager : MonoBehaviour
 
     public void TriggerHeavyAttackEffect()
     {
-        _particleManager.ToggleParticleSystem("heavyAttack", true);  
+        _particleManager.ToggleParticleSystem("heavyAttack", true);   
     }
 
     public void DestroyHeavyAttackEffect()

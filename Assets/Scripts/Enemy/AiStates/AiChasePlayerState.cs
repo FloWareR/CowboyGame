@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +13,7 @@ public class AiChasePlayer : AiState
 
     public void Enter(AiAgent agent)
     {
+        agent.navMeshAgent.ResetPath();
     }
 
     public void Update(AiAgent agent)
@@ -32,6 +34,10 @@ public class AiChasePlayer : AiState
                 }
             }
             _timer = agent.config.maxTime;
+        }
+        if (agent.navMeshAgent.remainingDistance <= agent.navMeshAgent.stoppingDistance && !agent.navMeshAgent.pathPending)
+        {
+                agent.StateMachine.ChangeState(AiStateID.Attack);
         }
     }
 

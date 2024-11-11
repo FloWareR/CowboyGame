@@ -5,6 +5,7 @@ public class AnimatorManager : MonoBehaviour
 {
     [SerializeField] private Transform graphics;
     [NonSerialized] public Animator AnimatorComponent;
+    
     private int _horizontal;
     private int _vertical;
     private static readonly int IsInteracting = Animator.StringToHash("isInteracting");

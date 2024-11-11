@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 [CreateAssetMenu()]
 public class AiAgentConfig : ScriptableObject
@@ -7,4 +8,6 @@ public class AiAgentConfig : ScriptableObject
     public float maxDistance;
     public float dieForce;
     public float maxSightDistance;
+    public float stoppingDistance;
+    public float damage;
 }
