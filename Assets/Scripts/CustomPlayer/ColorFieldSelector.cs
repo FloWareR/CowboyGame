@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class ColorFieldSelector : MonoBehaviour
 {
     public CustomColorPicker colorPicker;
-    public ShaderColorPreviewUpdater colorPreview;
     public Material characterMaterial; // Reference to the material
     private string selectedFieldName;
     private Color originalColor; // Store the original color before preview
@@ -29,7 +28,6 @@ public class ColorFieldSelector : MonoBehaviour
     // Apply the color change
     public void ApplyColorChange()
     {
-        colorPreview.UpdateColorPreviews();
         // No action needed as the previewed color is already applied.
         // This function can be kept for clarity or future custom save logic.
     }

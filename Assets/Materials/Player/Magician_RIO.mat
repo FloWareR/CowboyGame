@@ -64,15 +64,15 @@ Material:
     - _cloath_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
     - _cloth_main: {r: 1, g: 0, b: 0, a: 1}
     - _cloth_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 1}
-    - _leather_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
+    - _leather_main: {r: 0.7927695, g: 0.76428574, b: 0.25660378, a: 1}
     - _leather_secondary: {r: 0, g: 0, b: 0, a: 1}
     - _pants_main: {r: 0.7570552, g: 0.2213405, b: 0, a: 1}
     - _pants_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
     - _potion_main: {r: 1, g: 0, b: 1, a: 1}
     - _potion_secondary: {r: 0.28964388, g: 1, b: 0, a: 1}
-    - _robe_main: {r: 0.44285715, g: 0.14285715, b: 0.6642857, a: 1}
+    - _robe_main: {r: 0.44285715, g: 1, b: 0.20714286, a: 1}
     - _robe_secondary: {r: 1, g: 0, b: 0.5714286, a: 1}
-    - _skin_main: {r: 1, g: 0.96104723, b: 0.88113207, a: 1}
+    - _skin_main: {r: 0.38764128, g: 0.38908708, b: 0.3984743, a: 1}
     - _skin_secondary: {r: 1, g: 0.93140495, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8572433336607982669
