@@ -17,30 +17,25 @@ public class EnemyHealthManager : MonoBehaviour
     private Coroutine _blinkCoroutine;
     private MaterialPropertyBlock _propertyBlock;
 
+    private EnemySpawner _enemySpawner;
+
     void Start()
     {
         SetAllReferences();
         SetAllParameters();
-        #region Add HitBox Component to all rigidbodies in children of gameobject
-        var rigidbodies = GetComponentsInChildren<Rigidbody>();
-        foreach (var rigidbody in rigidbodies)
-        {
-            EnemyHitBox enemyHitBox = rigidbody.gameObject.AddComponent<EnemyHitBox>();
-            enemyHitBox.enemyHealthManager = this;
-        }
-        
-        #endregion
+        _enemySpawner = FindObjectOfType<EnemySpawner>(); // Assuming only one spawner
     }
 
     public void TakeDamage(float damage, Vector3 direction)
     {
         currentHealth -= damage;
         _healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
-        
-        if (currentHealth <= 0) Die(direction);
+
+        if (currentHealth <= 0)
+            Die(direction);
 
         if (_blinkCoroutine != null) StopCoroutine(_blinkCoroutine);
-        
+
         _blinkCoroutine = StartCoroutine(BlinkHDRRed());
     }
 
@@ -49,8 +44,11 @@ public class EnemyHealthManager : MonoBehaviour
         var deathState = _agent.StateMachine.GetState(AiStateID.Death) as AiDeathState;
         deathState.direction = direction;
         _agent.StateMachine.ChangeState(AiStateID.Death);
+
+        // Notify spawner that this enemy has died
+        _enemySpawner.RegisterDeath(gameObject);
     }
-    
+
     private IEnumerator BlinkHDRRed()
     {
         _propertyBlock = new MaterialPropertyBlock();
@@ -77,12 +75,6 @@ public class EnemyHealthManager : MonoBehaviour
         _propertyBlock.SetFloat("_BlinkIntensity", 1);
         _skinnedMeshRenderer.SetPropertyBlock(_propertyBlock);
     }
-
-
-
-
-
-
 
     private void SetAllReferences()
     {
