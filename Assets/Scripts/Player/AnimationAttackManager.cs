@@ -31,6 +31,10 @@ public class AnimationAttackManager : MonoBehaviour
         _particleManager.ToggleParticleSystem("meleeSlash", true);
     }
     
+    public void ExitPunching()
+    {
+        meleeCollider.enabled = false;
+    }
     public void ExitPunchingAnimation()
     {
         meleeCollider.enabled = false;
