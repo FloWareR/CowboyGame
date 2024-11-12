@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef81fe5a3a574b4fba1c7cd2471abde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: 4
+  initialState: 2
   config: {fileID: 11400000, guid: 4c542b199c9cdfd43be7ddadd13c6a48, type: 2}
   isInteracting: 0
   navMeshAgent: {fileID: 0}

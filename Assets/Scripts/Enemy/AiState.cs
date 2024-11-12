@@ -3,7 +3,7 @@ public enum AiStateID
 {
     ChasePlayer,
     Death,
-    Idle,
+    LookForTarget,
     Attack,
     MoveToObjective,
     AttackObjective,

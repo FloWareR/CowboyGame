@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0862f4458a8d74085543d5909fa189, type: 3}
   m_Name: AiDefaultConfiguration
   m_EditorClassIdentifier: 
-  maxTime: 0.25
-  maxDistance: 0
+  maxTime: 0.01
+  maxDistance: 55
   dieForce: 10
   maxSightDistance: 50
   stoppingDistance: 2
