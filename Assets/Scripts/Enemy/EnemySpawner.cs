@@ -33,11 +33,6 @@ public class EnemySpawner : MonoBehaviour
             waveInProgress = true;
             SpawnWave(currentWaveSize);
 
-            // Wait for 5 seconds after each wave
-            yield return new WaitForSeconds(waveTimeInterval);
-
-            // Increase wave size by 15% for the next wave
-            currentWaveSize = Mathf.CeilToInt(currentWaveSize * 1.15f);
         }
     }
 
@@ -53,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
         float spawnCoolDown = 0.5f;
 
         // Spawn enemies across the spawn points
-        while (enemiesSpawned <= waveSize)
+        while (enemiesSpawned < waveSize)
         {
             int randomIndex = Random.Range(0, spawnPointList.Count);
             Instantiate(enemyLightPrefab, spawnPointList[randomIndex].transform.position, Quaternion.identity);
@@ -69,8 +64,16 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Check if all enemies are dead to end the wave
-        yield return new WaitUntil(() => deathCount >= waveSize);
+        yield return new WaitUntil(() => deathCount == waveSize);
+
+        // Wait for 5 seconds after each wave
+        yield return new WaitForSeconds(waveTimeInterval);
+
+        // Increase wave size by 15% for the next wave
+        deathCount = 0;
+        currentWaveSize = Mathf.CeilToInt(currentWaveSize * 2);
         waveInProgress = false;
+        print(currentWaveSize);
     }
 
     public void RegisterDeath(GameObject deadEnemy)
@@ -120,8 +123,6 @@ public class EnemySpawner : MonoBehaviour
 
         // Ensure it's fully buried
         corpse.transform.position = new Vector3(originalPosition.x, originalPosition.y - 1f, originalPosition.z);
-
-        // Do not stop blinking here, let it continue until the corpse is destroyed
 
         // Destroy the corpse after burial
         Destroy(corpse);
