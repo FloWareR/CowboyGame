@@ -7,7 +7,7 @@ public class AiAgent : MonoBehaviour
     public AiStateMachine StateMachine;
     public AiAgentConfig config;
     public bool isInteracting;
-    
+
     [HideInInspector] public NavMeshAgent navMeshAgent;
     [HideInInspector] public Ragdoll ragdoll;
     [HideInInspector] public UIHealthBar healthBar;

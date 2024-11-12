@@ -3,14 +3,14 @@ using UnityEngine.Serialization;
 
 public class CameraManager : MonoBehaviour
 {
-    [Header("References")] 
+    [Header("References")]
     [SerializeField] private Transform cameraPivot;
-    [SerializeField] private Transform lookAt; 
+    [SerializeField] private Transform lookAt;
     [SerializeField] private Transform playerTransform;
 
     [SerializeField] private LayerMask collisionLayers;
 
-    [Header("Camera adjustments")] 
+    [Header("Camera adjustments")]
     [SerializeField] private float cameraFollowSpeed;
     [SerializeField] private float mouseSensitivityX;
     [SerializeField] private float mouseSensitivityY;
@@ -18,22 +18,22 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float joystickSensitivityY;
     [SerializeField] private float minimumPivotAngle;
     [SerializeField] private float maximumPivotAngle;
-    
+
     [Header("Zoom Settings")]
-    [SerializeField] private float zoomedInPosition; 
+    [SerializeField] private float zoomedInPosition;
     [SerializeField] private float zoomSpeed;
     [SerializeField] private float zoomedInFOV;
     [SerializeField] private float defaultFOV;
-    
-    [Header("Camera collision parameters")] 
+
+    [Header("Camera collision parameters")]
     [SerializeField] private float cameraCollisionRadius;
     [SerializeField] private float cameraCollisionOffset;
     [SerializeField] private float minimumCollisionOffset;
 
     public bool isJoystickInput;
-    public bool isZoomedIn = false; 
+    public bool isZoomedIn = false;
 
-    
+
     private float _defaultPosition;
     private float _lookAngle;
     private float _pivotAngle;
@@ -45,7 +45,7 @@ public class CameraManager : MonoBehaviour
     private InputManager _inputManager;
     private PlayerManager _playerManager;
     private Camera _cameraComponent;
-    
+
 
     private void Awake()
     {
@@ -54,7 +54,7 @@ public class CameraManager : MonoBehaviour
         _playerManager = FindObjectOfType<PlayerManager>();
         _targetTransform = _playerManager.transform;
         _inputManager = FindObjectOfType<InputManager>();
-        _cameraComponent = Camera.main; 
+        _cameraComponent = Camera.main;
         _cameraComponent.fieldOfView = defaultFOV;
         _defaultPosition = _cameraTransform.localPosition.z;
 
@@ -74,7 +74,7 @@ public class CameraManager : MonoBehaviour
         RotateCamera();
         HandleCameraCollision();
     }
-    
+
     private void FollowTarget()
     {
         var targetPosition = Vector3.SmoothDamp(transform.position, _targetTransform.position, ref _cameraFollowVelocity, cameraFollowSpeed);
@@ -91,7 +91,7 @@ public class CameraManager : MonoBehaviour
             sensitivityX = sensitivityX * .1f;
             sensitivityY = sensitivityY * .1f;
         }
-        
+
         _lookAngle += _inputManager.CameraInputX * sensitivityX;
         _pivotAngle -= _inputManager.CameraInputY * sensitivityY;
         _pivotAngle = Mathf.Clamp(_pivotAngle, minimumPivotAngle, maximumPivotAngle);
@@ -130,21 +130,27 @@ public class CameraManager : MonoBehaviour
         _cameraTransform.localPosition = _cameraVectorPosition;
     }
 
-    
+
     public void HandleZoomIn()
     {
         isZoomedIn = !isZoomedIn;
-    
+
         float targetPosition = isZoomedIn ? zoomedInPosition : _defaultPosition;
-    
+
         _cameraVectorPosition.z = Mathf.Lerp(_cameraTransform.localPosition.z, targetPosition, zoomSpeed * Time.deltaTime);
         _cameraTransform.localPosition = _cameraVectorPosition;
     }
-    
+
     private void HandleZoomFOV()
     {
         float targetFOV = isZoomedIn ? zoomedInFOV : defaultFOV;
         _cameraComponent.fieldOfView = Mathf.Lerp(_cameraComponent.fieldOfView, targetFOV, zoomSpeed * Time.deltaTime);
+    }
+
+    public void GameOver()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
 }

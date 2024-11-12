@@ -9,7 +9,9 @@ public class PlayerManager : MonoBehaviour
     private CameraManager _cameraManager;
     private Animator _animator;
     private ParticleManager _particleManager;
-    
+
+    [SerializeField] private GameOver gameOver;
+
     [SerializeField] private GameObject playerGraphics;
     [SerializeField] private GameObject playerRagdoll;
     [SerializeField] private string deathParticleName = "playerDeath";
@@ -78,6 +80,8 @@ public class PlayerManager : MonoBehaviour
         gameObject.SetActive(true);
         playerGraphics.SetActive(false);
         playerRagdoll.SetActive(true);
+        _cameraManager.GameOver();
+        gameOver.GameOverScreen();
 
         OnObjectiveFailed?.Invoke();
     }

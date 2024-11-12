@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int maxCorpsesAllowed = 1;    // Max number of corpses allowed at once
     [SerializeField] private List<GameObject> deathEnemies = new List<GameObject>();
 
-    [SerializeField] private int deathCount = 0;
+    [SerializeField] public int deathCount = 0;
 
     private int currentWaveSize;
     private bool waveInProgress = false;
