@@ -24,6 +24,10 @@ public class PlayerManager : MonoBehaviour
     private static readonly int IsGrounded = Animator.StringToHash("isGrounded");
     private static readonly int IsHeavyAttacking = Animator.StringToHash("isHeavyAttacking");
 
+    // Define the event and delegate
+    public delegate void ObjectiveFailedEventHandler();
+    public event ObjectiveFailedEventHandler OnObjectiveFailed;
+
     private void Awake()
     {
         playerRagdoll.SetActive(false);
@@ -32,7 +36,6 @@ public class PlayerManager : MonoBehaviour
         _cameraManager = FindObjectOfType<CameraManager>();
         _animator = GetComponentInChildren<Animator>();
         _particleManager = FindObjectOfType<ParticleManager>();
-        
     }
 
     private void Update()
@@ -75,6 +78,7 @@ public class PlayerManager : MonoBehaviour
         gameObject.SetActive(true);
         playerGraphics.SetActive(false);
         playerRagdoll.SetActive(true);
-        
+
+        OnObjectiveFailed?.Invoke();
     }
 }
