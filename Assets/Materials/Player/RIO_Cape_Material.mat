@@ -54,9 +54,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BlinkIntensity: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _cape_main: {r: 0.3132075, g: 0.058956712, b: 0, a: 0}
-    - _cape_secondary: {r: 0.6226415, g: 0.23993602, b: 0.10220716, a: 0}
+    - _cape_main: {r: 0.085688815, g: 0.13093202, b: 0.5471698, a: 0}
+    - _cape_secondary: {r: 0, g: 0.022907568, b: 0.09433961, a: 0}
   m_BuildTextureStacks: []

@@ -58,22 +58,22 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _buckle_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
+    - _buckle_main: {r: 0.97132826, g: 0, b: 1, a: 0}
     - _buckle_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 1}
     - _cloath_main: {r: 0.2672874, g: 0, b: 0.5566038, a: 0}
     - _cloath_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
-    - _cloth_main: {r: 1, g: 0, b: 0, a: 1}
-    - _cloth_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 1}
-    - _leather_main: {r: 0.7927695, g: 0.76428574, b: 0.25660378, a: 1}
-    - _leather_secondary: {r: 0, g: 0, b: 0, a: 1}
-    - _pants_main: {r: 0.7570552, g: 0.2213405, b: 0, a: 1}
-    - _pants_secondary: {r: 0.5329182, g: 0.3309007, b: 0.7971698, a: 0}
-    - _potion_main: {r: 1, g: 0, b: 1, a: 1}
-    - _potion_secondary: {r: 0.28964388, g: 1, b: 0, a: 1}
-    - _robe_main: {r: 0.44285715, g: 1, b: 0.20714286, a: 1}
-    - _robe_secondary: {r: 1, g: 0, b: 0.5714286, a: 1}
-    - _skin_main: {r: 0.38764128, g: 0.38908708, b: 0.3984743, a: 1}
-    - _skin_secondary: {r: 1, g: 0.93140495, b: 1, a: 1}
+    - _cloth_main: {r: 0.97735846, g: 0.7726664, b: 0.8654052, a: 1}
+    - _cloth_secondary: {r: 1, g: 0.16005991, b: 0, a: 1}
+    - _leather_main: {r: 0.335849, g: 0.19917603, b: 0.1058241, a: 1}
+    - _leather_secondary: {r: 0.6528301, g: 0.4267971, b: 0.25990024, a: 1}
+    - _pants_main: {r: 1, g: 1, b: 1, a: 1}
+    - _pants_secondary: {r: 1, g: 0.09736633, b: 0, a: 0}
+    - _potion_main: {r: 0.0056602955, g: 0.023235174, b: 1, a: 1}
+    - _potion_secondary: {r: 0, g: 0.14742732, b: 1, a: 1}
+    - _robe_main: {r: 0, g: 0.05926633, b: 1, a: 1}
+    - _robe_secondary: {r: 0, g: 0.16733599, b: 1, a: 1}
+    - _skin_main: {r: 1, g: 0.7827862, b: 0.3830188, a: 1}
+    - _skin_secondary: {r: 1, g: 0.60946035, b: 0.26226407, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8572433336607982669
 MonoBehaviour:
