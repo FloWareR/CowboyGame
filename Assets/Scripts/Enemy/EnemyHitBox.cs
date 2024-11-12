@@ -9,6 +9,12 @@ public class EnemyHitBox : MonoBehaviour
     {
         enemyHealthManager.TakeDamage(projectile.damage, direction);
     }
+
+    public void OnMeleeDamage(float damage, Vector3 direction)
+    {
+        enemyHealthManager.TakeDamage(damage, direction);
+    }
+    
     private void OnParticleCollision(GameObject other)
     {
         var damage = 0f;

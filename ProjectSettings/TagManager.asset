@@ -8,6 +8,7 @@ TagManager:
   - Damageable
   - Enemy Bullet
   - Ground
+  - Objective
   layers:
   - Default
   - TransparentFX

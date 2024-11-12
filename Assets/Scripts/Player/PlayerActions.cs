@@ -4,6 +4,7 @@ public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private Transform attackPoint;
 
+    public float meleeDamage;
 
     private AnimatorManager _animatorManager;
     private PlayerManager _playerManager;

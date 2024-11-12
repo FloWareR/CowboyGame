@@ -66,9 +66,6 @@ public class PlayerManager : MonoBehaviour
 
             // Reload the current scene
             SceneManager.LoadScene(currentSceneName);
-
-            // Load the additional scene additively
-            SceneManager.LoadScene("Slavica Free", LoadSceneMode.Additive);
         }
     }
 
@@ -79,39 +76,5 @@ public class PlayerManager : MonoBehaviour
         playerGraphics.SetActive(false);
         playerRagdoll.SetActive(true);
         
-        //StartCoroutine(WaitForRagdollToSettle());
-    }
-
-    private IEnumerator WaitForRagdollToSettle()
-    {
-        Rigidbody[] ragdollRigidbodies = playerRagdoll.GetComponentsInChildren<Rigidbody>();
-
-        float elapsedTime = 0f;
-        while (elapsedTime < ragdollSettleTime)
-        {
-            bool isRagdollMoving = false;
-
-            foreach (Rigidbody rb in ragdollRigidbodies)
-            {
-                if (rb.velocity.sqrMagnitude > 0.01f)
-                {
-                    isRagdollMoving = true;
-                    break;
-                }
-            }
-
-            if (!isRagdollMoving)
-            {
-                break;
-            }
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        if (_particleManager != null)
-        {
-            _particleManager.SpawnTemporaryParticle(deathParticleName, playerRagdoll.transform.position, Quaternion.identity);
-        }
     }
 }

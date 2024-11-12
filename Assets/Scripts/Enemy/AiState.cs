@@ -5,6 +5,8 @@ public enum AiStateID
     Death,
     Idle,
     Attack,
+    MoveToObjective,
+    AttackObjective,
 }
 
 public interface AiState

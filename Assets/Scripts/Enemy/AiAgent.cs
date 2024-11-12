@@ -13,6 +13,7 @@ public class AiAgent : MonoBehaviour
     [HideInInspector] public UIHealthBar healthBar;
     [HideInInspector] public SkinnedMeshRenderer skinnedMeshRenderer;
     [HideInInspector] public Transform playerTranform;
+    [HideInInspector] public Transform objectiveTransform;
     [HideInInspector] public AnimatorManager animatorManager;
 
     
@@ -38,6 +39,8 @@ public class AiAgent : MonoBehaviour
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         healthBar = GetComponentInChildren<UIHealthBar>();
         playerTranform = GameObject.FindGameObjectWithTag("Player").transform;
+        objectiveTransform = GameObject.FindGameObjectWithTag("Objective").transform;
+
         animatorManager = GetComponent<AnimatorManager>();
         navMeshAgent.stoppingDistance = config.stoppingDistance;
     }
@@ -48,6 +51,9 @@ public class AiAgent : MonoBehaviour
         StateMachine.RegisterState(new AiDeathState());
         StateMachine.RegisterState(new AiIdleState());
         StateMachine.RegisterState(new AiAttackState());
+        StateMachine.RegisterState(new AiMoveToObjective());
+        StateMachine.RegisterState(new AiAttackObjectiveState());
+
         StateMachine.ChangeState(initialState);
     }
 }

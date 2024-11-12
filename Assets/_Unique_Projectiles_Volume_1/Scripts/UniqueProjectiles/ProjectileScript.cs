@@ -82,7 +82,6 @@ public class ProjectileScript : MonoBehaviour {
 		
 		if(co.gameObject.CompareTag("Player")) return;
 		var hitBox = co.collider.GetComponent<EnemyHitBox>();
-		Debug.Log(hitBox);
 		Vector3 hitDirection = (co.transform.position - transform.position).normalized;
 		if (hitBox && !_collided)
 		{
