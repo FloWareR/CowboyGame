@@ -42,7 +42,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        ReloadCurrentAndAdditiveScene();
         _inputManager.HandleAllInput();
         if (!isAlive) return;
         _inputManager.HandleActions();
@@ -61,18 +60,7 @@ public class PlayerManager : MonoBehaviour
         isHeavyAttacking = _animator.GetBool(IsHeavyAttacking);
         _animator.SetBool(IsGrounded, _playerLocomotion.isGrounded);
     }
-
-    private void ReloadCurrentAndAdditiveScene()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            // Get the current active scene name
-            string currentSceneName = SceneManager.GetActiveScene().name;
-
-            // Reload the current scene
-            SceneManager.LoadScene(currentSceneName);
-        }
-    }
+    
 
     public void OnDeath()
     {

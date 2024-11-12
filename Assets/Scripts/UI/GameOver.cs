@@ -43,6 +43,7 @@ public class GameOver : MonoBehaviour
 
             objectToEnable[0].SetActive(false);
             objectToEnable[1].SetActive(true);
+            objectToEnable[2].SetActive(false);
             gameOverText.text = $"Total souls: {enemySpawner.deathCount}";
             isGameover = true;
         }

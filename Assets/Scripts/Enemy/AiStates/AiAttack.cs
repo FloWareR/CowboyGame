@@ -16,5 +16,20 @@ public class EnemyWeapon : MonoBehaviour
                 player.TakeDamage(config.damage, transform.forward);
             }
         }
+        
+        if (other.CompareTag("Objective"))
+        {
+             ArtifactHealth artifact = other.GetComponentInParent<ArtifactHealth>();
+
+            if (artifact != null)
+            {
+                artifact.TakeDamage(config.damage);
+            }
+            else
+            {
+                Debug.Log("PUTO");
+            }
+        }
     }
+    
 }

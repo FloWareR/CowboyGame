@@ -35,15 +35,12 @@ public class AiMoveToObjective : AiState
         // Move towards the objective if not chasing the player
         if (!agent.navMeshAgent.hasPath || agent.navMeshAgent.destination != agent.objectiveTransform.position)
         {
-            Debug.Log("Setting destination to objective.");
             agent.navMeshAgent.SetDestination(agent.objectiveTransform.position);
         }
 
         // Check if reached the objective
-        if (agent.navMeshAgent.remainingDistance <= agent.navMeshAgent.stoppingDistance && !agent.navMeshAgent.pathPending)
+        if (agent.navMeshAgent.remainingDistance <= agent.config.stoppingDistanceObjective && !agent.navMeshAgent.pathPending)
         {
-            Debug.Log("Changing state to AttackObjective.");
-
             agent.StateMachine.ChangeState(AiStateID.AttackObjective);
         }
 

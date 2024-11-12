@@ -9,5 +9,6 @@ public class AiAgentConfig : ScriptableObject
     public float dieForce;
     public float maxSightDistance;
     public float stoppingDistance;
+    public float stoppingDistanceObjective;
     public float damage;
 }

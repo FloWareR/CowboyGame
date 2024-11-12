@@ -35,7 +35,6 @@ public class Ragdoll : MonoBehaviour
         {
             rigidbody.isKinematic = true;
         }
-        Debug.Log("rigidbodies disabled");
     }
 
     public void ActivateRagdoll()

@@ -10,6 +10,7 @@ public class UIHealthBar : MonoBehaviour
 
     private Camera _camera;
 
+    public bool playerHP = false;
     private void Start()
     {
         _camera = Camera.main;
@@ -17,11 +18,15 @@ public class UIHealthBar : MonoBehaviour
 
     private void LateUpdate()
     {
-        var direction = (target.position - _camera.transform.position).normalized;
-        bool isHidden = Vector3.Dot(direction, _camera.transform.forward) <= 0.0f;
-        foregroundImage.enabled = !isHidden;
-        backgroundImage.enabled = !isHidden;
-        transform.position = _camera.WorldToScreenPoint(target.position + offset);
+        if (!playerHP)
+        {
+            var direction = (target.position - _camera.transform.position).normalized;
+            bool isHidden = Vector3.Dot(direction, _camera.transform.forward) <= 0.0f;
+            foregroundImage.enabled = !isHidden;
+            backgroundImage.enabled = !isHidden;
+            transform.position = _camera.WorldToScreenPoint(target.position + offset);
+        }
+    
     }
 
     public void SetHealthBarPercentage(float percentage)

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerHealthManager : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class PlayerHealthManager : MonoBehaviour
     [SerializeField] private float blinkDuration;
 
     private SkinnedMeshRenderer[] _skinnedMeshRenderers;
-
+    
+    [SerializeField ]private UIHealthBar healthBar;
     private Color _originalColor;
     private Coroutine _blinkCoroutine;
     private MaterialPropertyBlock _propertyBlock;
@@ -27,9 +29,8 @@ public class PlayerHealthManager : MonoBehaviour
     public void TakeDamage(float damage, Vector3 direction)
     {
         currentHealth -= damage;
-        
+        healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
         if (currentHealth <= 0) Die(direction);
-
         if (_blinkCoroutine != null) StopCoroutine(_blinkCoroutine);
         foreach (var mesh in _skinnedMeshRenderers)
         {

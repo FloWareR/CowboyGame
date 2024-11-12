@@ -19,8 +19,8 @@ public class AiAttackObjectiveState : AiState
     {
         if (agent.isInteracting) return;
         float distanceToObjective = Vector3.Distance(agent.transform.position, agent.objectiveTransform.position);
-
-        if (distanceToObjective <= agent.config.maxDistance)
+        float distanceToPlayer = Vector3.Distance(agent.transform.position, agent.playerTranform.position);
+        if (distanceToObjective <= agent.config.maxDistance && distanceToPlayer > agent.config.maxSightDistance)
         {
             if (!agent.isInteracting)
             {
@@ -29,7 +29,7 @@ public class AiAttackObjectiveState : AiState
         }
         else
         {
-            agent.StateMachine.ChangeState(AiStateID.MoveToObjective);
+            agent.StateMachine.ChangeState(AiStateID.LookForTarget);
         }
     }
 

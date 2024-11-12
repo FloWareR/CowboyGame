@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: AiDefaultConfiguration
   m_EditorClassIdentifier: 
   maxTime: 0.01
-  maxDistance: 55
+  maxDistance: 50
   dieForce: 10
-  maxSightDistance: 50
+  maxSightDistance: 40
   stoppingDistance: 2
+  stoppingDistanceObjective: 4
   damage: 50
