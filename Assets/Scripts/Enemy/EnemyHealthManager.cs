@@ -22,7 +22,7 @@ public class EnemyHealthManager : MonoBehaviour
     {
         SetAllReferences();
         SetAllParameters();
-        
+
         #region Add HitBox Component to all rigidbodies in children of gameobject
         var rigidbodies = GetComponentsInChildren<Rigidbody>();
         foreach (var rigidbody in rigidbodies)
@@ -31,7 +31,7 @@ public class EnemyHealthManager : MonoBehaviour
             enemyHitBox.enemyHealthManager = this;
         }
         #endregion
-        
+
         _enemySpawner = FindObjectOfType<EnemySpawner>();
     }
 

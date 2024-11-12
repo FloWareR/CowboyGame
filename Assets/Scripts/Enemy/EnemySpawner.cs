@@ -8,8 +8,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Transform> spawnPointList;
     [SerializeField] private float waveTimeInterval = 5f;  // Time between waves
     [SerializeField] private int initialWaveSize = 10;     // Initial wave size
-    [SerializeField] private int maxCorpsesAllowed = 20;    // Max number of corpses allowed at once
+    [SerializeField] private int maxCorpsesAllowed = 1;    // Max number of corpses allowed at once
     [SerializeField] private List<GameObject> deathEnemies = new List<GameObject>();
+
+    [SerializeField] private int deathCount = 0;
 
     private int currentWaveSize;
     private bool waveInProgress = false;
@@ -67,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Check if all enemies are dead to end the wave
-        yield return new WaitUntil(() => deathEnemies.Count >= waveSize);
+        yield return new WaitUntil(() => deathCount >= waveSize);
         waveInProgress = false;
     }
 
@@ -86,13 +88,24 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator BuryCorpse(GameObject corpse)
     {
-        Rigidbody rb = corpse.GetComponent<Rigidbody>();
-        Collider col = corpse.GetComponent<Collider>();
 
-        // Disable collider and gravity
-        col.enabled = false;
-        rb.useGravity = false;
+        // Get all child objects of the corpse
+        Collider[] colliders = corpse.GetComponentsInChildren<Collider>();
+        Rigidbody[] rigidbodies = corpse.GetComponentsInChildren<Rigidbody>();
 
+        // Disable colliders on all children
+        foreach (var collider in colliders)
+        {
+            collider.enabled = false;
+        }
+
+        // Deactivate gravity on all rigidbodies
+        foreach (var rb in rigidbodies)
+        {
+            rb.useGravity = false;
+        }
+
+        // Save the original position of the corpse
         Vector3 originalPosition = corpse.transform.position;
 
         // Lerp the Y position down to simulate burial
@@ -108,7 +121,11 @@ public class EnemySpawner : MonoBehaviour
         // Ensure it's fully buried
         corpse.transform.position = new Vector3(originalPosition.x, originalPosition.y - 1f, originalPosition.z);
 
+        // Do not stop blinking here, let it continue until the corpse is destroyed
+
         // Destroy the corpse after burial
         Destroy(corpse);
+        deathCount++;
     }
+
 }
