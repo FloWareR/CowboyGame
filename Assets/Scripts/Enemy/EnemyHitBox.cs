@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 public class EnemyHitBox : MonoBehaviour
 {
-    [FormerlySerializedAs("healthManager")] public EnemyHealthManager enemyHealthManager;
+    public EnemyHealthManager enemyHealthManager;
 
     public void OnWeaponDamage(ProjectileScript projectile, Vector3 direction)
     {

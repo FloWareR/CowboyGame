@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 61a803a0ba389c04cb28c9c4409c88ac
   - enabled: 1
+    path: Assets/Scenes/PlayerController.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
     path: Assets/Scenes/DefendTheCrystal.unity
     guid: c8f698c34799dc74cb896506da88b166
   m_configObjects:

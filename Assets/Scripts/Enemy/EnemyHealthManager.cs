@@ -16,14 +16,23 @@ public class EnemyHealthManager : MonoBehaviour
     private Color _originalColor;
     private Coroutine _blinkCoroutine;
     private MaterialPropertyBlock _propertyBlock;
-
     private EnemySpawner _enemySpawner;
 
     void Start()
     {
         SetAllReferences();
         SetAllParameters();
-        _enemySpawner = FindObjectOfType<EnemySpawner>(); // Assuming only one spawner
+        
+        #region Add HitBox Component to all rigidbodies in children of gameobject
+        var rigidbodies = GetComponentsInChildren<Rigidbody>();
+        foreach (var rigidbody in rigidbodies)
+        {
+            EnemyHitBox enemyHitBox = rigidbody.gameObject.AddComponent<EnemyHitBox>();
+            enemyHitBox.enemyHealthManager = this;
+        }
+        #endregion
+        
+        _enemySpawner = FindObjectOfType<EnemySpawner>();
     }
 
     public void TakeDamage(float damage, Vector3 direction)
